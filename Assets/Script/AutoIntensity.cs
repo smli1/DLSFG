@@ -35,6 +35,8 @@ public class AutoIntensity : MonoBehaviour {
 
     public Light nightLight;
 
+    public float growthMultiplier = 0;
+
     void Start() {
 
         mainLight = GetComponent<Light>();
@@ -80,5 +82,7 @@ public class AutoIntensity : MonoBehaviour {
         //Keyboard controls for testing purposes
         if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
         if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
+
+        growthMultiplier = (Mathf.Sin((Mathf.PI / 180) * transform.eulerAngles.x)+1)/2;
     }
 }
