@@ -66,6 +66,7 @@ public class PlayerAction : MonoBehaviour {
                 if (colliders.Length != 0)
                 {
                     movementEnable = false;
+                    StartCoroutine(waitToEnable(0.75f));
                     isPickedUp = true;
                     m_animator.SetBool("isPickedUp", isPickedUp);
                     //Debug.Log(closestCollider(colliders).name);
@@ -82,12 +83,19 @@ public class PlayerAction : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                movementEnable = true;
+                movementEnable = false;
+                StartCoroutine(waitToEnable(0.75f));
                 isPickedUp = false;
                 m_animator.SetBool("isPickedUp", isPickedUp);
                 ReleasePickedUpObj();
             }
         }
+    }
+
+    IEnumerator waitToEnable(float time)
+    {
+        yield return new WaitForSeconds(time);
+        movementEnable = true;
     }
 
     void ReleasePickedUpObj()

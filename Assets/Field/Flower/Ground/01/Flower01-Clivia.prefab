@@ -52,7 +52,7 @@ Transform:
   m_GameObject: {fileID: 1618623293007534}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 2.37, y: -0.01, z: -0.13}
-  m_LocalScale: {x: 3.8205264, y: 3.8205292, z: 3.8205292}
+  m_LocalScale: {x: 6.367946, y: 6.3679442, z: 6.3679442}
   m_Children:
   - {fileID: 4827029094191156}
   m_Father: {fileID: 0}
@@ -101,7 +101,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 314e60f52d9c96f439635d04d74ed495, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,7 +143,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42bd2d25c4494874f8e3fca4d978183e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
