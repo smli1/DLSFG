@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4838508441941220}
   - component: {fileID: 212006572363589764}
   - component: {fileID: 95084798644105646}
+  - component: {fileID: 65765808632463846}
   m_Layer: 0
   m_Name: Flower09-Rose
   m_TagString: Untagged
@@ -51,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1946768769186968}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.33, y: 0.024, z: 1.746}
-  m_LocalScale: {x: 3.580595, y: 3.5805933, z: 3.5805933}
+  m_LocalPosition: {x: 2.11, y: 0.024, z: 4.15}
+  m_LocalScale: {x: 8.250151, y: 8.250145, z: 8.250145}
   m_Children:
   - {fileID: 4928210157944338}
   m_Father: {fileID: 0}
@@ -71,6 +72,18 @@ Transform:
   m_Father: {fileID: 4838508441941220}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &65765808632463846
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1946768769186968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15, y: 0.1, z: 0.1}
+  m_Center: {x: 0.0000019073486, y: 0.04, z: 0}
 --- !u!95 &95084798644105646
 Animator:
   serializedVersion: 3
@@ -101,7 +114,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 314e60f52d9c96f439635d04d74ed495, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,7 +156,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42bd2d25c4494874f8e3fca4d978183e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

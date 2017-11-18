@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4664286570525310}
   - component: {fileID: 212078256628014924}
   - component: {fileID: 95414303434903034}
+  - component: {fileID: 65724824942751050}
   m_Layer: 0
   m_Name: Flower14-Begonia
   m_TagString: Untagged
@@ -51,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1613531957809496}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.25500488, y: 0.04, z: 2.375}
-  m_LocalScale: {x: 2.612487, y: 2.6124873, z: 2.6124873}
+  m_LocalPosition: {x: -1.23, y: 0.04, z: 3.17}
+  m_LocalScale: {x: 6.040208, y: 6.040208, z: 6.040208}
   m_Children:
   - {fileID: 4705939737976984}
   m_Father: {fileID: 0}
@@ -71,6 +72,18 @@ Transform:
   m_Father: {fileID: 4664286570525310}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &65724824942751050
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1613531957809496}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28, y: 0.2, z: 0.2}
+  m_Center: {x: 0.0000038146973, y: 0.075, z: 0}
 --- !u!95 &95414303434903034
 Animator:
   serializedVersion: 3
@@ -101,7 +114,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 314e60f52d9c96f439635d04d74ed495, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,7 +156,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42bd2d25c4494874f8e3fca4d978183e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
