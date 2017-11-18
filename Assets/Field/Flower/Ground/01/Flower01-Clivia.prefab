@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4274108491870086}
   - component: {fileID: 212185759528683528}
   - component: {fileID: 95639206400378574}
+  - component: {fileID: 65677314798694508}
   m_Layer: 0
   m_Name: Flower01-Clivia
   m_TagString: Untagged
@@ -71,6 +72,18 @@ Transform:
   m_Father: {fileID: 4274108491870086}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &65677314798694508
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618623293007534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.25, z: 0.1}
+  m_Center: {x: -0.013966158, y: 0.13219766, z: 0}
 --- !u!95 &95639206400378574
 Animator:
   serializedVersion: 3

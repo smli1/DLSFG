@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4034652543969280}
   - component: {fileID: 212696740266101886}
   - component: {fileID: 95840046792541050}
+  - component: {fileID: 65989295656576108}
   m_Layer: 0
   m_Name: Flower03-Hyacinthus_Orientalis
   m_TagString: Untagged
@@ -71,6 +72,18 @@ Transform:
   m_Father: {fileID: 4034652543969280}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &65989295656576108
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1236155650772390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.099999994, y: 0.09, z: 0.05}
+  m_Center: {x: 0, y: 0.045, z: 0}
 --- !u!95 &95840046792541050
 Animator:
   serializedVersion: 3

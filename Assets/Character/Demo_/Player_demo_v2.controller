@@ -349,7 +349,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -2144,6 +2144,29 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
+--- !u!1102 &1102122559858511412
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Water_Right
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 3cce597698ed1ab468ac063c980dd4bc, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
 --- !u!1102 &1102139582145674704
 AnimatorState:
   serializedVersion: 5
@@ -2224,6 +2247,52 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 913a2bb4821dcca41923ec74f6f0e41b, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+--- !u!1102 &1102177504861719876
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Plow_Left
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 39adcc8ae66b5b943971eba90b72b372, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+--- !u!1102 &1102197969171976870
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Plow_Front
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 20d13b7563b7fc54da1251f3fb0fb6ef, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2576,6 +2645,75 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
+--- !u!1102 &1102784849915253972
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Plow_Right
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 2bd60897bd05c764281e9a048ccd071e, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+--- !u!1102 &1102827996242830464
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Water_Back
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 04ddee65df9a8d9489bd7e4915122ed8, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+--- !u!1102 &1102869691875037238
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Water_Front
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 3c8114463e120514599735aeb4fb3a66, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
 --- !u!1102 &1102911209386030558
 AnimatorState:
   serializedVersion: 5
@@ -2596,6 +2734,29 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 63e017b541abb7b438d7c245adc5fa8f, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+--- !u!1102 &1102919266245189972
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Water_Left
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 540aca24c5454554cb76f8d2f851fa04, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2650,16 +2811,16 @@ AnimatorStateMachine:
     m_Position: {x: 864, y: 432, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102596356788892646}
-    m_Position: {x: 204, y: 696, z: 0}
+    m_Position: {x: 192, y: 696, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102523209853571656}
-    m_Position: {x: 348, y: 936, z: 0}
+    m_Position: {x: 408, y: 828, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102638374536273198}
-    m_Position: {x: 672, y: 936, z: 0}
+    m_Position: {x: 684, y: 828, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102277978564559484}
-    m_Position: {x: 864, y: 708, z: 0}
+    m_Position: {x: 864, y: 696, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102911209386030558}
     m_Position: {x: 60, y: 276, z: 0}
@@ -2689,13 +2850,34 @@ AnimatorStateMachine:
     m_Position: {x: 636, y: 192, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102990643420273100}
-    m_Position: {x: 180, y: 132, z: 0}
+    m_Position: {x: 180, y: 144, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102159595083156394}
     m_Position: {x: 408, y: 192, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102391029947309306}
-    m_Position: {x: 912, y: 132, z: 0}
+    m_Position: {x: 864, y: 144, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102869691875037238}
+    m_Position: {x: 1200, y: 108, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102827996242830464}
+    m_Position: {x: 1500, y: 180, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102919266245189972}
+    m_Position: {x: 1404, y: 312, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102122559858511412}
+    m_Position: {x: 1104, y: 252, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102197969171976870}
+    m_Position: {x: 1092, y: 540, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102177504861719876}
+    m_Position: {x: 1176, y: 420, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102784849915253972}
+    m_Position: {x: 1416, y: 420, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
