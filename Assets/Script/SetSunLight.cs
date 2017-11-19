@@ -6,7 +6,7 @@ public class SetSunLight : MonoBehaviour {
 
     //public Renderer lightwall;
 
-    Material sky;
+    //Material sky;
 
     //public Renderer water;
 
@@ -16,11 +16,11 @@ public class SetSunLight : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        sky = RenderSettings.skybox;
+        //sky = RenderSettings.skybox;
 
     }
 
-    bool lighton = false;
+    //bool lighton = false;
 
     // Update is called once per frame
     void Update() {
@@ -47,7 +47,7 @@ public class SetSunLight : MonoBehaviour {
 
         Vector3 tvec = Camera.main.transform.position;
         worldProbe.transform.position = tvec;
-
+        
         water.material.mainTextureOffset = new Vector2(Time.time / 100, 0);
         water.material.SetTextureOffset("_DetailAlbedoMap", new Vector2(0, Time.time / 80));
         */
