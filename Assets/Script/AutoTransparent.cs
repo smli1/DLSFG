@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AutoTransparent : MonoBehaviour {
 
-    private Shader m_OldShader = null;
-    private Color m_OldColor = Color.black;
+    private Shader m_oldShader = null;
+    private Color m_oldColor = Color.black;
     private Material m_oldMaterial = null;
 
     [SerializeField]
@@ -15,17 +15,18 @@ public class AutoTransparent : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        
+    }
 
     public void BeTransparent() {
         // reset the transparency;
         m_Transparency = m_TargetTransparancy;
-        if (m_OldShader == null) {
+        if (m_oldShader == null) {
             // Save the current shader
             m_oldMaterial = GetComponent<Renderer>().material;
-            m_OldShader = GetComponent<Renderer>().material.shader;
-            m_OldColor = GetComponent<Renderer>().material.color;
+            m_oldShader = GetComponent<Renderer>().material.shader;
+            Debug.Log(m_oldMaterial.renderQueue);
+            m_oldColor = GetComponent<Renderer>().material.color;
             GetComponent<Renderer>().material.shader = Shader.Find("Transparent/Diffuse");
         }
     }
@@ -40,9 +41,11 @@ public class AutoTransparent : MonoBehaviour {
             Debug.Log("reset");
 
             // Reset the shader
-            GetComponent<Renderer>().material.shader = m_OldShader;
-            GetComponent<Renderer>().material.color = m_OldColor;
             GetComponent<Renderer>().material = m_oldMaterial;
+            GetComponent<Renderer>().material.shader = m_oldShader;
+            GetComponent<Renderer>().material.color = m_oldColor;
+            GetComponent<Renderer>().material.renderQueue = 2450;
+            Debug.Log(GetComponent<Renderer>().material.renderQueue);
             // And remove this script
             Destroy(this);
         }
