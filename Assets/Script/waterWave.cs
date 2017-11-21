@@ -13,6 +13,6 @@ public class waterWave : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         material.mainTextureOffset= new Vector2(material.mainTextureOffset.x + Mathf.Sin(Time.time) * Time.deltaTime / 50f, material.mainTextureOffset.y);
-        
+        material.SetTextureOffset("_DetailAlbedoMap", new Vector2(material.mainTextureOffset.x + Mathf.Cos(Time.time) * Time.deltaTime / 20f, material.mainTextureOffset.y));
     }
 }
