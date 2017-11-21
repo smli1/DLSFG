@@ -13,11 +13,6 @@ public class PlayerAction : MonoBehaviour {
     private bool isPickedUp = false;
     //private float force = 50f;
     private GameObject pickedObj = null;
-
-    public Transform plantingPoint;
-    public Transform flower;
-    public Transform ploughedGround;
-    private Tool m_tool = Tool.Shovel;
     #endregion
 
     #region Methods
@@ -82,12 +77,6 @@ public class PlayerAction : MonoBehaviour {
                     pickedObj.transform.localPosition = Vector3.zero;
                     //gameObject.transform.GetChild(0);gameObject.transform.GetChild(0).gameObject.set
                 }
-            }
-
-            //Code to plant a flower
-            if (Input.GetKeyDown(KeyCode.R)) {
-                if(m_tool == Tool.Shovel)
-                    Instantiate(ploughedGround, plantingPoint.position, plantingPoint.rotation);
             }
         }
         else if (isPickedUp == true)
