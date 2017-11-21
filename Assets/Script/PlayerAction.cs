@@ -13,6 +13,10 @@ public class PlayerAction : MonoBehaviour {
     private bool isPickedUp = false;
     //private float force = 50f;
     private GameObject pickedObj = null;
+
+    public Transform plantingPoint;
+    public Transform ploughedGround;
+    private Tool m_tool = Tool.Shovel;
     #endregion
 
     #region Methods
@@ -76,6 +80,24 @@ public class PlayerAction : MonoBehaviour {
                     pickedObj.transform.parent = gameObject.transform.GetChild(0);
                     pickedObj.transform.localPosition = Vector3.zero;
                     //gameObject.transform.GetChild(0);gameObject.transform.GetChild(0).gameObject.set
+                }
+            }
+
+            //Code for player actions when using current tools
+            if (Input.GetKeyDown(KeyCode.R)) {
+                switch (m_tool) {
+                    case Tool.Shovel:
+                        //Ploughing the ground ready to plant
+                        Instantiate(ploughedGround, plantingPoint.position, plantingPoint.rotation);
+                        break;
+
+                    case Tool.Dibber:
+                        //Search infront for ground to plant seed
+                        break;
+
+                    case Tool.WateringCan:
+                        //Search infront for seed to water
+                        break;
                 }
             }
         }
