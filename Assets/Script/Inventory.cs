@@ -12,17 +12,16 @@ public class Inventory : MonoBehaviour {
 
     private float moneyPouch = 500f;
 
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start() {
+        Plant newPlant = new PlantBuilder("Rose").SetUniqueValues().SetCommonValues().Build();
+        Debug.Log(newPlant.GetCost());
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
-
-
 
     /// <summary>
     /// Searching the bag for a given value

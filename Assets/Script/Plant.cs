@@ -18,8 +18,16 @@ public class Plant{
     private float m_value;
     private Emotion m_emotion;
 
-    public Plant() {
-        
+    public Plant(PlantBuilder builder) {
+        m_name = builder.m_name;
+        m_description = builder.m_description;
+        m_cost = builder.m_cost;
+        m_quality = builder.m_quality;
+        m_growthStages = builder.m_growthStages;
+        m_owner = builder.m_owner;
+        m_growth = builder.m_growth;
+        m_water = builder.m_water;
+        m_emotion = builder.m_emotion;
     }
 
     //Getters and Setters
