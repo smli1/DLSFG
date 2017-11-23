@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plant : MonoBehaviour {
+public class Plant{
 
     private string m_name;
     private string m_description;
@@ -18,19 +18,9 @@ public class Plant : MonoBehaviour {
     private float m_value;
     private Emotion m_emotion;
 
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    //Methods will go here
-
+    public Plant() {
+        
+    }
 
     //Getters and Setters
     public void SetName(string name) {

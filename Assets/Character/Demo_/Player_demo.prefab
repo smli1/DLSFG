@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 95506150910478790}
   - component: {fileID: 114646769610768726}
   - component: {fileID: 114355151385612454}
+  - component: {fileID: 114980129252995750}
   - component: {fileID: 65675185139638558}
   - component: {fileID: 54342144236319810}
   m_Layer: 0
@@ -159,8 +160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  plantingPoint: {fileID: 0}
-  ploughedGround: {fileID: 0}
+  plantingPoint: {fileID: 4000626224050698}
+  ploughedGround: {fileID: 4523098429920604, guid: 3835677c28dee56469d5a163c62a4e8c,
+    type: 2}
 --- !u!114 &114646769610768726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,6 +172,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4743ef5780540049ba91daf379584e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114980129252995750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1706264160656324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a18743d94c5d934880c1f376fec8b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212168238377999886
