@@ -73,7 +73,7 @@ MonoBehaviour:
     m_Settings:
       focusDistance: 12
       aperture: 0.05
-      focalLength: 9.38
+      focalLength: 7.8
       useCameraFov: 0
       kernelSize: 0
   motionBlur:
@@ -86,7 +86,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       lowPercent: 1
-      highPercent: 30.587559
+      highPercent: 33.166508
       minLuminance: -5
       maxLuminance: 1
       keyValue: 0.25
@@ -94,14 +94,14 @@ MonoBehaviour:
       adaptationType: 0
       speedUp: 2
       speedDown: 1
-      logMin: -8
+      logMin: -4
       logMax: 4
   bloom:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.1
-        threshold: 0.7
+        intensity: 0.19
+        threshold: 0.85
         softKnee: 0.519
         radius: 3.54
         antiFlicker: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
     m_Settings:
       tonemapping:
         tonemapper: 2
-        neutralBlackIn: 0.0512
+        neutralBlackIn: 0.035
         neutralWhiteIn: 10.94
         neutralBlackOut: 0.0185
         neutralWhiteOut: 6.54
@@ -125,7 +125,7 @@ MonoBehaviour:
         tint: 0
         hueShift: 0
         saturation: 1
-        contrast: 0.873
+        contrast: 1
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
