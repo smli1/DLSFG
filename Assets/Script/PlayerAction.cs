@@ -14,9 +14,12 @@ public class PlayerAction : MonoBehaviour {
     //private float force = 50f;
     private GameObject pickedObj = null;
 
+    public Transform ploughingPoint;
     public Transform plantingPoint;
     public Transform ploughedGround;
-    private Tool m_tool = Tool.Shovel;
+    public Transform seed;
+
+    private Inventory inventory;
     #endregion
 
     #region Methods
@@ -26,17 +29,17 @@ public class PlayerAction : MonoBehaviour {
         GetComponent<SpriteRenderer>().receiveShadows = true;
         GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
 
+        inventory = GetComponent<Inventory>();
     }
-
 
     void Update() {
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
 
-        m_animator.SetInteger("vertical", (int)(h * 5f));
-        m_animator.SetInteger("horizontal", (int)(v * 5f));
+        if (movementEnable) {
 
-        if (movementEnable) { 
+            m_animator.SetInteger("vertical", (int)(h * 5f));
+            m_animator.SetInteger("horizontal", (int)(v * 5f));
 
             if (h != 0 || v != 0)
             {
@@ -56,16 +59,7 @@ public class PlayerAction : MonoBehaviour {
         if (m_animator.GetBool("isStay") && isPickedUp == false) {
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                Collider[] colliders = Physics.OverlapSphere(transform.position + getDirection() * 0.8f - new Vector3(0, 1.0f, 0), 0.6f);
-                Stack<Collider> filter = new Stack<Collider>();
-                foreach (Collider c in colliders)
-                {
-                    if (c.gameObject.tag != "pickable") continue;
-                    filter.Push(c);
-                    Debug.Log(c.name + " : " + Vector3.Distance(gameObject.transform.position, c.gameObject.transform.position));
-                }
-
-                colliders = filter.ToArray();
+                Collider[] colliders = FindNearbyColliders("pickable");
 
                 if (colliders.Length != 0)
                 {
@@ -85,14 +79,40 @@ public class PlayerAction : MonoBehaviour {
 
             //Code for player actions when using current tools
             if (Input.GetKeyDown(KeyCode.R)) {
-                switch (m_tool) {
+                switch (GetComponent<Inventory>().CurrentTool()) {
                     case Tool.Shovel:
                         //Ploughing the ground ready to plant
-                        Instantiate(ploughedGround, plantingPoint.position, plantingPoint.rotation);
+                        Instantiate(ploughedGround, ploughingPoint.position, ploughingPoint.rotation);
                         break;
 
                     case Tool.Dibber:
-                        //Search infront for ground to plant seed
+                        int[] index = inventory.SearchBag("seed");
+
+                        if (index != inventory.GetNullIndex()) {
+
+                            //Search infront for ground to plant seed
+                            Collider[] colliders = FindNearbyColliders("PloughedGround");
+
+                            if (colliders.Length != 0) {
+                                GameObject nearbyGround = ClosestCollider(colliders).gameObject;
+                                //Planting the seed in the nearby ground.
+                                Transform newSeed = Instantiate(seed, nearbyGround.transform.position, plantingPoint.rotation);
+                                //Making the parent of the seed the ground its planted in
+                                newSeed.SetParent(nearbyGround.transform);
+                                //Changing the tag of the ground so another seed cannot be planted in it
+                                nearbyGround.tag = "Flowering";
+
+                                //Creating new plant object and adding it to the seeds plantbehaviour script
+                                string plantName = inventory.GetPlantName(index);
+                                Plant newPlant = new PlantBuilder(plantName).SetUniqueValues().SetCommonValues().Build();
+                                newSeed.GetComponent<PlantBehaviour>().SetPlant(newPlant);
+
+                                inventory.RemoveItem(index);
+
+                                Debug.Log(newSeed.GetComponent<PlantBehaviour>().GetPlant().GetName());
+                            }
+                        }
+
                         break;
 
                     case Tool.WateringCan:
@@ -134,7 +154,7 @@ public class PlayerAction : MonoBehaviour {
 
     void SetDirection(AnimatorStateInfo animStateInfo)
     {
-
+        
         if (animStateInfo.IsName("Idle_Font"))
         {
             lastDir = -transform.forward;
@@ -175,6 +195,20 @@ public class PlayerAction : MonoBehaviour {
         }
 
         return closestCol;
+    }
+
+    public Collider[] FindNearbyColliders(string tag) {
+        Collider[] colliders = Physics.OverlapSphere(transform.position + getDirection() * 0.8f - new Vector3(0, 1.0f, 0), 0.6f);
+        Stack<Collider> filter = new Stack<Collider>();
+        foreach (Collider c in colliders) {
+            if (c.gameObject.tag != tag) continue;
+            filter.Push(c);
+            Debug.Log(c.name + " : " + Vector3.Distance(gameObject.transform.position, c.gameObject.transform.position));
+        }
+
+        colliders = filter.ToArray();
+
+        return colliders;
     }
 
     #endregion

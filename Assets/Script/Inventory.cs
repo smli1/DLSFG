@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour {
 
     private string[,] playerBag = new string[6, 6];
     private int spaceInBag = 36;
+    private int[] nullIndex = { -1, -1 };
 
     private Tool[] toolBelt = new Tool[] { Tool.Shovel, Tool.Dibber, Tool.WateringCan };
     private int currentTool = 0;
@@ -14,12 +15,17 @@ public class Inventory : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        
+        playerBag[0, 0] = "Convallaria_Majalis/seed";
+        playerBag[0, 1] = "Chrysanthemum/seed";
     }
 
     // Update is called once per frame
     void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.C)) {
+            ChangeTool(true);
+        }else if (Input.GetKeyDown(KeyCode.X)) {
+            ChangeTool(false);
+        }
 	}
 
     /// <summary>
@@ -28,17 +34,46 @@ public class Inventory : MonoBehaviour {
     /// <param name="value">Value to search for</param>
     /// <returns>Index of value</returns>
     public int[] SearchBag(string value) {
-        int[] index = null;
+        bool stop = false;
+
+        int[] index = new int[] { -1, -1 };
         //Loop through the bag searching for empty slots, incrementing 'space' each time one is found
-        for(int i = 0; i < playerBag.GetLength(0); i++) {
-            for(int j = 0; j < playerBag.GetLength(1); j++) {
-                if (playerBag[i,j] == value) {
-                    index[0] = i;
-                    index[1] = j;
+        for(int i = 0; i < playerBag.GetLength(0) && !stop; i++) {
+            for(int j = 0; j < playerBag.GetLength(1) && !stop; j++) {
+                //Checking to see if the contents of the bag at the current index does not equal to null
+                if (playerBag[i, j] != null) {
+                    string[] tempValue = playerBag[i, j].Split('/');
+                    //Split the value stored in the bag around '/' then loop through the values to compare next to the required values
+                    for (int k = 0; k < tempValue.Length; k++) {
+                        if (tempValue[k] == value) {
+                            index[0] = i;
+                            index[1] = j;
+
+                            stop = true;
+                            break;
+                        }
+                    }
                 }
             }
         }
         return index;
+    }
+
+    /// <summary>
+    /// Returning the name of the plant at a certain index
+    /// </summary>
+    /// <param name="index">Index of the plant</param>
+    /// <returns>The name of the plant</returns>
+    public string GetPlantName(int[] index) {
+        string bagObject =  playerBag[index[0], index[1]];
+
+        if(bagObject != "" && bagObject != null) {
+            bagObject = bagObject.Split('/')[0];
+        } else {
+            bagObject = "";
+        }
+
+        return bagObject;
     }
 
     /// <summary>
@@ -49,21 +84,21 @@ public class Inventory : MonoBehaviour {
         //Get index for next available space in the inventory
         int[] index = SearchBag(null);
 
-        if (index != null) { 
+        if (index != nullIndex) { 
             playerBag[index[0], index[1]] = item;
             spaceInBag--;
         }
     }
 
     /// <summary>
-    /// Public methof for removing an item from the players bag
+    /// Public method for removing an item from the players bag
     /// </summary>
     /// <param name="item">Item to be removed from the bag</param>
-    public void RemoveItem(string item) {
+    public void RemoveItem(int[] index) {
         //Get index for the item in the bag
-        int[] index = SearchBag(item);
+        //int[] index = SearchBag(item);
 
-        if (index != null) {
+        if (index != nullIndex) {
             playerBag[index[0], index[1]] = null;
             spaceInBag++;
         }
@@ -79,6 +114,10 @@ public class Inventory : MonoBehaviour {
 
         playerBag[index2[0], index2[1]] = playerBag[index1[0], index1[1]];
         playerBag[index1[0], index1[1]] = tempItem;
+    }
+
+    public int[] GetNullIndex() {
+        return nullIndex;
     }
 
     /// <summary>
@@ -103,6 +142,8 @@ public class Inventory : MonoBehaviour {
             if (currentTool == -1)
                 currentTool = toolBelt.Length - 1;
         }
+
+        Debug.Log(toolBelt[currentTool]);
     }
 
     /// <summary>

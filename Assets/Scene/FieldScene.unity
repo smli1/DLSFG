@@ -22777,8 +22777,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  ploughingPoint: {fileID: 0}
   plantingPoint: {fileID: 0}
   ploughedGround: {fileID: 0}
+  seed: {fileID: 0}
 --- !u!114 &949822517
 MonoBehaviour:
   m_ObjectHideFlags: 0

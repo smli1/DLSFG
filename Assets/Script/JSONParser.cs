@@ -46,7 +46,7 @@ public class JSONParser{
             flowers = new Data();
 
             flowers = JsonUtility.FromJson<Data>(data);
-            Debug.Log(flowers.plants[0].cost);
+            Debug.Log(flowers.plants[0].name);
         } else {
             Debug.LogError("JSON File does not exist!");
         }
