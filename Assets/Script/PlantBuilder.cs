@@ -26,8 +26,7 @@ public class PlantBuilder{
     }
 
     public PlantBuilder SetUniqueValues() {
-        JSONParser parser = new JSONParser();
-        parser.ReadJson();
+        JSONParser parser = JSONParser.Instance();
 
         m_description = parser.GetDescription(m_name);
         m_cost = parser.GetCost(m_name);

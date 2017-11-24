@@ -3,7 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class JSONParser : MonoBehaviour{
+public class JSONParser{
+
+    public static JSONParser parser;
+
+    protected JSONParser() {
+        ReadJson();
+        Debug.Log("New instance made.");
+    }
+
+    public static JSONParser Instance(){
+        if ( parser == null ){
+            parser = new JSONParser();
+        }
+
+        return parser;
+    }
 
     public Data flowers;
 

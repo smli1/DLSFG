@@ -14,8 +14,7 @@ public class Inventory : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        Plant newPlant = new PlantBuilder("Rose").SetUniqueValues().SetCommonValues().Build();
-        Debug.Log(newPlant.GetCost());
+        
     }
 
     // Update is called once per frame
