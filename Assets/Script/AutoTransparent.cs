@@ -45,7 +45,7 @@ public class AutoTransparent : MonoBehaviour {
             GetComponent<Renderer>().material.shader = m_oldShader;
             GetComponent<Renderer>().material.color = m_oldColor;
             GetComponent<Renderer>().material.renderQueue = 2450;
-            Debug.Log(GetComponent<Renderer>().material.renderQueue);
+            //Debug.Log(GetComponent<Renderer>().material.renderQueue);
             // And remove this script
             Destroy(this);
         }

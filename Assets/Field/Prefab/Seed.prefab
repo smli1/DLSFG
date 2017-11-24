@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4703474726740432}
   - component: {fileID: 212633791366492996}
+  - component: {fileID: 114267555143754086}
+  - component: {fileID: 95836992448345214}
   m_Layer: 0
   m_Name: Seed
   m_TagString: Untagged
@@ -40,6 +42,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 179.99998}
+--- !u!95 &95836992448345214
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1731633831372316}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114267555143754086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1731633831372316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b1465c5e648ac4081b040db5bcedeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212633791366492996
 SpriteRenderer:
   m_ObjectHideFlags: 1

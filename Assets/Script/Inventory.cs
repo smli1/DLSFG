@@ -15,8 +15,9 @@ public class Inventory : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        playerBag[0, 0] = "Convallaria_Majalis/seed";
+        playerBag[0, 0] = "Clivia/seed";
         playerBag[0, 1] = "Chrysanthemum/seed";
+        playerBag[0, 2] = "Rose/seed";
     }
 
     // Update is called once per frame
@@ -114,10 +115,6 @@ public class Inventory : MonoBehaviour {
 
         playerBag[index2[0], index2[1]] = playerBag[index1[0], index1[1]];
         playerBag[index1[0], index1[1]] = tempItem;
-    }
-
-    public int[] GetNullIndex() {
-        return nullIndex;
     }
 
     /// <summary>

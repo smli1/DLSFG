@@ -8,7 +8,7 @@ public class PlantBehaviour : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        GetComponent<Animator>().runtimeAnimatorController = Resources.Load(plant.GetName()) as RuntimeAnimatorController;
+        GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/" + plant.GetName()) as RuntimeAnimatorController;
     }
 	// Update is called once per frame
 	void Update () {

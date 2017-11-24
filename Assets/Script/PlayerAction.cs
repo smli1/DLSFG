@@ -87,8 +87,8 @@ public class PlayerAction : MonoBehaviour {
 
                     case Tool.Dibber:
                         int[] index = inventory.SearchBag("seed");
-
-                        if (index != inventory.GetNullIndex()) {
+                        Debug.Log(index[0] + "," + index[1]);
+                        if (index[0] != -1) {
 
                             //Search infront for ground to plant seed
                             Collider[] colliders = FindNearbyColliders("PloughedGround");
