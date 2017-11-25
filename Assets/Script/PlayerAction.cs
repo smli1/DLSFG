@@ -14,6 +14,7 @@ public class PlayerAction : MonoBehaviour {
     //private float force = 50f;
     private GameObject pickedObj = null;
 
+    private bool canPlant = false;
     public Transform ploughingPoint;
     public Transform plantingPoint;
     public Transform ploughedGround;
@@ -82,7 +83,8 @@ public class PlayerAction : MonoBehaviour {
                 switch (GetComponent<Inventory>().CurrentTool()) {
                     case Tool.Shovel:
                         //Ploughing the ground ready to plant
-                        Instantiate(ploughedGround, ploughingPoint.position, ploughingPoint.rotation);
+                        if(canPlant)
+                            Instantiate(ploughedGround, ploughingPoint.position, ploughingPoint.rotation);
                         break;
 
                     case Tool.Dibber:
@@ -209,6 +211,10 @@ public class PlayerAction : MonoBehaviour {
         colliders = filter.ToArray();
 
         return colliders;
+    }
+
+    public void setCanPlant(bool trueorfalse) {
+        canPlant = trueorfalse;
     }
 
     #endregion

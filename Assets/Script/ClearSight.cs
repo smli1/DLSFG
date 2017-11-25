@@ -21,7 +21,7 @@ public class ClearSight : MonoBehaviour {
             Renderer R = hit.collider.GetComponent<Renderer>();
             if (R == null)
                 continue;
-            if (hit.collider.gameObject.tag != "Player") {
+            if (hit.collider.gameObject.tag != "Player" && hit.collider.gameObject.tag != "Field") {
                 AutoTransparent AT = R.GetComponent<AutoTransparent>();
                 if (AT == null) {
                     AT = R.gameObject.AddComponent<AutoTransparent>();
