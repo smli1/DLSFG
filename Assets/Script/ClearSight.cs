@@ -6,6 +6,12 @@ public class ClearSight : MonoBehaviour {
 
     public float DistanceToPlayer = 5.0f;
 
+    public Material standardTree;
+    public Material transparentTree;
+
+    public Material standardBush;
+    public Material transparentBush;
+
     // Use this for initialization
     void Start () {
 		
@@ -26,6 +32,15 @@ public class ClearSight : MonoBehaviour {
                 if (AT == null) {
                     AT = R.gameObject.AddComponent<AutoTransparent>();
                 }
+
+                if (R.gameObject.tag == "Tree") {
+                    AT.m_oldMaterial = standardTree;
+                    AT.m_newMaterial = transparentTree;
+                } else if(R.gameObject.tag == "Bush"){
+                    AT.m_oldMaterial = standardBush;
+                    AT.m_newMaterial = transparentBush;
+                }
+
                 AT.BeTransparent();
             }
         }
