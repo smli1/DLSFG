@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        playerBag[0, 0] = "Clivia/seed";
+        playerBag[0, 0] = "Hyacinthus_Orientalis/seed";
         playerBag[0, 1] = "Chrysanthemum/seed";
         playerBag[0, 2] = "Rose/seed";
     }

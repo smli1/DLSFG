@@ -7,6 +7,9 @@ TagManager:
   - pickable
   - PloughedGround
   - Flowering
+  - Field
+  - Tree
+  - Bush
   layers:
   - Default
   - TransparentFX
