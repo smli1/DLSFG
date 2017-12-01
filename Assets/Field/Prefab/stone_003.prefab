@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 135028737230826110}
   m_Layer: 0
   m_Name: stone_003
-  m_TagString: Untagged
+  m_TagString: pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320707831343252}
   m_LocalRotation: {x: 0.7070799, y: -0.0061706076, z: 0.006170607, w: 0.7070798}
-  m_LocalPosition: {x: 249.3, y: 0.34, z: 480.77}
-  m_LocalScale: {x: 0.0628546, y: 0.05125562, z: 0.051255632}
+  m_LocalPosition: {x: 250.9, y: 0.3, z: 464.8}
+  m_LocalScale: {x: 0.0628546, y: 0.051255614, z: 0.051255632}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,5 +107,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.9999995
+  m_Radius: 3.44
   m_Center: {x: 0, y: 0, z: 0}
