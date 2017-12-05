@@ -88,7 +88,7 @@ public class PlayerAction : MonoBehaviour {
                             //Ploughing the ground ready to plant
                             if (canPlant)
                             {
-                                StartCoroutine( WaitForPloughingAnim(0.85f, getDirection()));
+                                StartCoroutine( WaitForPloughingAnim(0.85f, GetDirection()));
                                 //Instantiate(ploughedGround, ploughingPoint.position+getDirection()* 1.2f, ploughingPoint.rotation);
                             }
                         }
@@ -217,7 +217,7 @@ public class PlayerAction : MonoBehaviour {
         pickedObj.GetComponent<Rigidbody>().isKinematic = false;
         pickedObj.GetComponent<Collider>().isTrigger = false;
         pickedObj.transform.parent = null;
-        pickedObj.transform.position += getDirection();
+        pickedObj.transform.position += GetDirection();
         Debug.Log(lastDir);
         pickedObj = null;
     }
@@ -248,7 +248,7 @@ public class PlayerAction : MonoBehaviour {
 
     }
 
-    Vector3 getDirection()
+    Vector3 GetDirection()
     {
         return lastDir;
     }
@@ -272,7 +272,7 @@ public class PlayerAction : MonoBehaviour {
     }
 
     public Collider[] FindNearbyColliders(string tag) {
-        Collider[] colliders = Physics.OverlapSphere(transform.position + getDirection() * 0.8f - new Vector3(0, 1.0f, 0), 0.6f);
+        Collider[] colliders = Physics.OverlapSphere(transform.position + GetDirection() * 0.8f - new Vector3(0, 1.0f, 0), 0.6f);
         Stack<Collider> filter = new Stack<Collider>();
         foreach (Collider c in colliders) {
             if (c.gameObject.tag != tag) continue;
@@ -285,7 +285,7 @@ public class PlayerAction : MonoBehaviour {
         return colliders;
     }
 
-    public void setCanPlant(bool trueorfalse) {
+    public void SetCanPlant(bool trueorfalse) {
         canPlant = trueorfalse;
     }
 

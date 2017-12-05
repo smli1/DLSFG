@@ -5,13 +5,13 @@ using UnityEngine;
 public class FieldTrigger : MonoBehaviour {
     void OnTriggerEnter(Collider col) {
         if(col.tag == "Player") {
-            col.GetComponent<PlayerAction>().setCanPlant(true);
+            col.GetComponent<PlayerAction>().SetCanPlant(true);
         }
     }
 
     void OnTriggerExit(Collider col) {
         if(col.tag == "Player") {
-            col.GetComponent<PlayerAction>().setCanPlant(false);
+            col.GetComponent<PlayerAction>().SetCanPlant(false);
         }
     }
 }

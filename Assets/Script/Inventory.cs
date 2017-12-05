@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
@@ -10,24 +11,51 @@ public class Inventory : MonoBehaviour {
 
     private Tool[] toolBelt = new Tool[] { Tool.Shovel, Tool.Dibber, Tool.WateringCan };
     private int currentTool = 0;
-
     private float moneyPouch = 500f;
+
+    private bool isChanging = false;
+
+    [SerializeField]
+    private Sprite[] toolImages; // order refer to Tool enum
+    [SerializeField]
+    private Transform shortcutUI;
+    private Animator shortcutUIAnimator;
 
     // Use this for initialization
     void Start() {
+        shortcutUIAnimator = shortcutUI.GetComponent<Animator>();
         playerBag[0, 0] = "Hyacinthus_Orientalis/seed";
         playerBag[0, 1] = "Chrysanthemum/seed";
         playerBag[0, 2] = "Rose/seed";
+        SetShortcutImages();
     }
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown(KeyCode.C)) {
-            ChangeTool(true);
-        }else if (Input.GetKeyDown(KeyCode.X)) {
-            ChangeTool(false);
+        if (!isChanging && (Input.GetKeyDown(KeyCode.C)||Input.GetKeyDown(KeyCode.X))) {
+            isChanging = true;
+            if (Input.GetKeyDown(KeyCode.C)) {
+                ChangeTool(true);
+
+                SetShortcutImages();
+                shortcutUIAnimator.Play("ChangeRight", 0);
+                StartCoroutine(WaitForChangingToolAnim(0.2f));
+            } else if (Input.GetKeyDown(KeyCode.X)) {
+                ChangeTool(false);
+
+                SetShortcutImages();
+                shortcutUIAnimator.Play("ChangeLeft", 0);
+                StartCoroutine(WaitForChangingToolAnim(0.1f));
+            }
+            
         }
 	}
+
+    IEnumerator WaitForChangingToolAnim(float time)
+    {
+        yield return new WaitForSeconds(time);
+        isChanging = false;
+    }
 
     /// <summary>
     /// Searching the bag for a given value
@@ -139,8 +167,124 @@ public class Inventory : MonoBehaviour {
             if (currentTool == -1)
                 currentTool = toolBelt.Length - 1;
         }
-
         Debug.Log(toolBelt[currentTool]);
+    }
+
+
+    /// <summary>
+    /// Private method for set the shortcut Images
+    /// </summary>
+    private void SetShortcutImages()
+    {
+        for (int i = 0; i < shortcutUI.childCount; i++)
+        {
+            Transform temp = shortcutUI.GetChild(i);
+            int tempNum;
+            switch (temp.name)
+            {
+                case "Left":
+                    tempNum = currentTool + 1;
+                    if (tempNum == toolBelt.Length)
+                    {
+                        tempNum = 0;
+                    }
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[tempNum]];
+                    break;
+                case "Center":
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[currentTool]];
+                    break;
+                case "Right":
+                    tempNum = currentTool - 1;
+                    if (tempNum == -1)
+                    {
+                        tempNum = toolBelt.Length - 1;
+                    }
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[tempNum]];
+                    break;
+                case "TempL":
+                    tempNum = currentTool + 2;
+                    if (tempNum == toolBelt.Length)
+                    {
+                        tempNum = 0;
+                    }
+                    else if (tempNum == toolBelt.Length +1)
+                    {
+                        tempNum = 1;
+                    }
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[tempNum]];
+                    break;
+                case "TempR":
+                    tempNum = currentTool - 2;
+                    if (tempNum == -1)
+                    {
+                        tempNum = toolBelt.Length - 1;
+                    }
+                    else if (tempNum == -2)
+                    {
+                        tempNum = toolBelt.Length - 2;
+                    }
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[tempNum]];
+                    break;
+                default:
+                    Debug.Log("Found an unidentified name("+temp.name+").");
+                    break;
+
+            }
+        }
+    }
+
+    private void SetShortcutImages2()
+    {
+        for (int i = 0; i < shortcutUI.childCount; i++)
+        {
+            Transform temp = shortcutUI.GetChild(i);
+            int tempNum;
+            switch (temp.name)
+            {
+                case "Left":
+                
+                    tempNum = currentTool + 1;
+                    if (tempNum == toolBelt.Length)
+                    {
+                        tempNum = 0;
+                    }
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[tempNum]];
+                    break;
+                case "Center":
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[currentTool]];
+                    break;
+                case "Right":
+                    tempNum = currentTool - 1;
+                    if (tempNum == -1)
+                    {
+                        tempNum = toolBelt.Length - 1;
+                    }
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[tempNum]];
+                    break;
+
+                case "TempL":
+                    tempNum = currentTool + 2;
+                    if (tempNum >= toolBelt.Length)
+                    {
+                        tempNum = 1;
+                    }
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[tempNum]];
+                    break;
+
+                case "TempR":
+                    tempNum = currentTool - 2;
+                    if (tempNum < 0)
+                    {
+                        tempNum = toolBelt.Length - 2;
+                    }
+                    temp.GetChild(0).GetComponent<Image>().sprite = toolImages[(int)toolBelt[tempNum]];
+                    break;
+                default:
+                    Debug.Log("Found an unidentified name(" + temp.name + ").");
+                    break;
+
+            }
+        }
     }
 
     /// <summary>
