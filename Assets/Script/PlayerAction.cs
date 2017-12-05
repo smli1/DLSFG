@@ -56,7 +56,7 @@ public class PlayerAction : MonoBehaviour {
             
         }
         SetDirection(m_animator.GetCurrentAnimatorStateInfo(0));
-
+        
         if (m_animator.GetBool("isStay") && isPickedUp == false) {
             if (Input.GetKeyDown(KeyCode.Z))
             {
@@ -218,28 +218,29 @@ public class PlayerAction : MonoBehaviour {
         pickedObj.GetComponent<Collider>().isTrigger = false;
         pickedObj.transform.parent = null;
         pickedObj.transform.position += getDirection();
+        Debug.Log(lastDir);
         pickedObj = null;
     }
 
     void SetDirection(AnimatorStateInfo animStateInfo)
     {
         
-        if (animStateInfo.IsName("Idle_Font") || animStateInfo.IsName("Walk_Font"))
+        if (animStateInfo.IsName("Idle_Front") || animStateInfo.IsName("Walk_Front") || animStateInfo.IsName("Pick_Idle_Front") || animStateInfo.IsName("Pick_Walk_Front"))
         {
             lastDir = -transform.forward;
             m_animator.SetInteger("direction", 1);
         }
-        else if (animStateInfo.IsName("Idle_Left") || animStateInfo.IsName("Walk_Left"))
+        else if (animStateInfo.IsName("Idle_Left") || animStateInfo.IsName("Walk_Left") || animStateInfo.IsName("Pick_Idle_Left") || animStateInfo.IsName("Pick_Walk_Left"))
         {
             lastDir = -transform.right;
             m_animator.SetInteger("direction", 3);
         }
-        else if (animStateInfo.IsName("Idle_Right") || animStateInfo.IsName("Walk_Right"))
+        else if (animStateInfo.IsName("Idle_Right") || animStateInfo.IsName("Walk_Right") || animStateInfo.IsName("Pick_Idle_Right") || animStateInfo.IsName("Pick_Walk_Right"))
         {
             lastDir = transform.right;
             m_animator.SetInteger("direction", 4);
         }
-        else if (animStateInfo.IsName("Idle_Back") || animStateInfo.IsName("Walk_Back"))
+        else if (animStateInfo.IsName("Idle_Back") || animStateInfo.IsName("Walk_Back") || animStateInfo.IsName("Pick_Idle_Back") || animStateInfo.IsName("Pick_Walk_Back"))
         {
             lastDir = transform.forward;
             m_animator.SetInteger("direction", 2);
