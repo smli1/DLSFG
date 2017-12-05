@@ -36,6 +36,7 @@ public class AutoIntensity : MonoBehaviour {
     public Light nightLight;
 
     public float growthMultiplier = 0;
+    public float timeOfDay = 0;
 
     void Start() {
 
@@ -83,6 +84,7 @@ public class AutoIntensity : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
         if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
 
-        growthMultiplier = (Mathf.Sin((Mathf.PI / 180) * transform.eulerAngles.x)+1)/2;
+        growthMultiplier += (Mathf.Sin((Mathf.PI / 180) * transform.eulerAngles.x)+1)/2;
+        timeOfDay = mainLight.transform.forward.x;
     }
 }
