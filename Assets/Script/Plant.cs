@@ -12,7 +12,7 @@ public class Plant{
 
     private string m_owner;
 
-    private float m_growth;
+    private int m_growth;
     private float m_water;
     private float m_fertiliser;
     private float m_value;
@@ -49,7 +49,7 @@ public class Plant{
     public void SetOwner(string owner) {
         m_owner = owner;
     }
-    public void SetGrowth(float growth) {
+    public void SetGrowth(int growth) {
         m_growth = growth;
     }
     public void SetWater(float water) {
@@ -83,7 +83,7 @@ public class Plant{
     public string GetOwner() {
         return m_owner;
     }
-    public float GetGrowth() {
+    public int GetGrowth() {
         return m_growth;
     }
     public float GetWater() {
@@ -97,5 +97,9 @@ public class Plant{
     }
     public Emotion GetEmotion() {
         return m_emotion;
+    }
+
+    public void IncrementGrowthStage() {
+        
     }
 }

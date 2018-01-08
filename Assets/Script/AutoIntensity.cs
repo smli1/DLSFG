@@ -37,12 +37,14 @@ public class AutoIntensity : MonoBehaviour {
 
     public float growthMultiplier = 0;
     public float timeOfDay = 0;
+    private Vector3 rotationOfSun = Vector3.zero;
 
     void Start() {
 
         mainLight = GetComponent<Light>();
         skyMat = RenderSettings.skybox;
 
+        rotationOfSun.x += 90;
     }
 
     void Update() {
@@ -75,16 +77,32 @@ public class AutoIntensity : MonoBehaviour {
         i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
         skyMat.SetFloat("_AtmosphereThickness", i);
 
-        if (dot > 0)
+        if (dot > 0){
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skySpeed);
-        else
+            rotationOfSun -= (dayRotateSpeed * Time.deltaTime * skySpeed);
+        }
+        else{
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skySpeed);
+            rotationOfSun -= (nightRotateSpeed * Time.deltaTime * skySpeed);
+        }
         
         //Keyboard controls for testing purposes
         if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
         if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
 
-        growthMultiplier += (Mathf.Sin((Mathf.PI / 180) * transform.eulerAngles.x)+1)/2;
-        timeOfDay = mainLight.transform.forward.x;
+
+        NormaliseRotation();
+        growthMultiplier += (Mathf.Sin((Mathf.PI / 180) * rotationOfSun.x)+1)/2;
+        timeOfDay = (rotationOfSun.x)/15;
+    }
+
+    public void NormaliseRotation(){
+        if(rotationOfSun.x >= 360){
+            rotationOfSun.x -= 360;
+        }
+    }
+
+    public float GetCurrentTime(){
+        return timeOfDay;
     }
 }
