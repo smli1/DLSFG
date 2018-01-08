@@ -4,31 +4,31 @@
             "description": "",
             "cost": 106,
             "quality": 15,
-            "growthstage": [5.3, 10.6, 16]
+            "growthstage": [5, 11, 16]
         },
         {
-            "name": "Convallaria Majalis",
+            "name": "Convallaria_Majalis",
             "description": "",
             "cost": 66,
             "quality": 15,
-            "growthstage": [3.3, 6.6, 10]
+            "growthstage": [3, 7, 10]
         },
         {
-            "name": "Hyacinthus Orientalis",
+            "name": "Hyacinthus_Orientalis",
             "description": "",
             "cost": 53,
             "quality": 15,
-            "growthstage": [2.6, 5.3, 8]
+            "growthstage": [3, 5, 8]
         },
         {
-            "name": "Viola Tricolor",
+            "name": "Viola_Tricolor",
             "description": "",
             "cost": 7,
             "quality": 5,
             "growthstage": [1, 2, 3]
         },
         {
-            "name": "Pear Blossom",
+            "name": "Pear_Blossom",
             "description": "",
             "cost": 33,
             "quality": 5,
@@ -39,7 +39,7 @@
             "description": "",
             "cost": 35,
             "quality": 10,
-            "growthstage": [2.6, 5.3, 8]
+            "growthstage": [3, 5, 8]
         },
         {
             "name": "Lotus",
@@ -53,21 +53,21 @@
             "description": "",
             "cost": 18,
             "quality": 5,
-            "growthstage": [2.6, 5.3, 8]
+            "growthstage": [3, 5, 8]
         },
         {
             "name": "Rose",
             "description": "",
             "cost": 22,
             "quality": 5,
-            "growthstage": [3.3, 6.6, 10]
+            "growthstage": [3, 7, 10]
         },
         {
-            "name": "Yellow Iris",
+            "name": "Yellow_Iris",
             "description": "",
             "cost": 11,
             "quality": 5,
-            "growthstage": [1.6, 3.3, 5]
+            "growthstage": [2, 3, 5]
         },
         {
             "name": "Pickerelweed",
@@ -81,14 +81,14 @@
             "description": "",
             "cost": 9,
             "quality": 5,
-            "growthstage": [1.3, 2.6, 4]
+            "growthstage": [1, 3, 4]
         },
         {
             "name": "Melastoma",
             "description": "",
             "cost": 44,
             "quality": 10,
-            "growthstage": [3.3, 6.6, 10]
+            "growthstage": [3, 7, 10]
         },
         {
             "name": "Begonia",
@@ -102,10 +102,10 @@
             "description": "",
             "cost": 35,
             "quality": 10,
-            "growthstage": [2.6, 5.3, 8]
+            "growthstage": [3, 5, 8]
         },
         {
-            "name": "Water Hyacinth",
+            "name": "Water_Hyacinth",
             "description": "",
             "cost": 79,
             "quality": 15,
@@ -123,38 +123,38 @@
             "description": "",
             "cost": 15,
             "quality": 5,
-            "growthstage": [2.3, 4.6, 7]
+            "growthstage": [2, 5, 7]
         },
         {
             "name": "Camellia",
             "description": "",
             "cost": 132,
             "quality": 15,
-            "growthstage": [6.6, 13.2, 20]
+            "growthstage": [7, 13, 20]
         },
         {
             "name": "Narcissus",
             "description": "",
             "cost": 44,
             "quality": 15,
-            "growthstage": [3.3, 6.6, 10]
+            "growthstage": [3, 7, 10]
         },
         {
-            "name": "Jatropha Pandurifolia",
+            "name": "Jatropha_Pandurifolia",
             "description": "",
             "cost": 176,
             "quality": 20,
-            "growthstage": [6.6, 13.2, 20]
+            "growthstage": [7, 13, 20]
         },
         {
-            "name": "Rafflesia Arnoldii",
+            "name": "Rafflesia_Arnoldii",
             "description": "",
             "cost": 440,
             "quality": 25,
-            "growthstage": [13.3, 26.6, 40]
+            "growthstage": [13, 27, 40]
         },
         {
-            "name": "Yellow Water Lily",
+            "name": "Yellow_Water_Lily",
             "description": "",
             "cost": 13,
             "quality": 5,

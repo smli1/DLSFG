@@ -8,7 +8,7 @@ public class PlantBuilder{
     public string m_description;
     public float m_cost;
     public float m_quality;
-    public float[] m_growthStages;
+    public int[] m_growthStages;
 
     public string m_owner;
 

@@ -33,7 +33,7 @@ public class JSONParser{
         public string description;
         public float cost;
         public float quality;
-        public float[] growthstage;
+        public int[] growthstage;
     }
     
     public void ReadJson() {
@@ -75,7 +75,7 @@ public class JSONParser{
         return SearchData(value).quality;
     }
 
-    public float[] GetGrowthStage(string value) {
+    public int[] GetGrowthStage(string value) {
         return SearchData(value).growthstage;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlantBehaviour : MonoBehaviour {
 
-    private Plant plant;
+    public Plant plant;
 
     private float[] growingTimes = new float[3];
     private float timeOfPlanting;
@@ -18,20 +18,20 @@ public class PlantBehaviour : MonoBehaviour {
         theSun = GameObject.FindGameObjectWithTag("TheSun").GetComponent<AutoIntensity>();
         timeOfPlanting = theSun.GetCurrentTime();
 
-        
+        CalculateTimeofGrowing();
     }
 	// Update is called once per frame
 	void Update () {
-		//if(theSun.GetCurrentTime() >= growingTimes[plant.GetGrowth()]){
-            //plant.IncrementGrowthStage();
-            //Debug.Log("Plant has grown");
-        //}
+		if(theSun.GetCurrentTime() >= growingTimes[plant.GetGrowth()]){
+            plant.IncrementGrowthStage();
+            Debug.Log("Plant has grown: " + theSun.GetCurrentTime() + " - " + plant.GetCost());
+        }
 	}
 
     //Getter and Setter for the plant object
     public void SetPlant(Plant newPlant) {
         plant = newPlant;
-        Debug.Log(plant.GetGrowthStages()[0]);
+        //Debug.Log(plant.GetGrowthStages()[0]);
     }
     public Plant GetPlant() {
         return plant;
@@ -39,7 +39,7 @@ public class PlantBehaviour : MonoBehaviour {
 
     public void CalculateTimeofGrowing() {
         for (int i = 0; i < growingTimes.Length; i++) {
-            //growingTimes[i] = plant.GetGrowthStages()[0] + timeOfPlanting;
+            growingTimes[i] = timeOfPlanting + plant.GetGrowthStages()[i];
 
             Debug.Log(growingTimes[i]);
         }

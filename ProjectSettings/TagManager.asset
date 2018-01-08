@@ -10,6 +10,7 @@ TagManager:
   - Field
   - Tree
   - Bush
+  - TheSun
   layers:
   - Default
   - TransparentFX
