@@ -12,7 +12,7 @@ public class PlantBuilder{
 
     public string m_owner;
 
-    public float m_growth;
+    public int m_growth;
     public float m_water;
     public float m_fertiliser;
     public float m_value;
@@ -39,7 +39,7 @@ public class PlantBuilder{
     public PlantBuilder SetCommonValues() {
 
         m_owner = "";
-        m_growth = 0f;
+        m_growth = 0;
         m_water = 100f;
         m_value = m_cost;
         m_emotion = Emotion.Happy;
