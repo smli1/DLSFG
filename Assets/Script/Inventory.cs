@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
-    private string[,] playerBag = new string[6, 6];
+    public string[,] playerBag = new string[6, 6];
     private int spaceInBag = 36;
     private int[] nullIndex = { -1, -1 };
 
@@ -24,10 +24,18 @@ public class Inventory : MonoBehaviour {
     // Use this for initialization
     void Start() {
         shortcutUIAnimator = shortcutUI.GetComponent<Animator>();
+ 
+        SetShortcutImages();
+
+        for(int i = 0; i < playerBag.GetLength(0); i++){
+            for(int j = 0; j < playerBag.GetLength(1); j++) {
+                playerBag[i, j] = "/";
+            }
+        }
+
         playerBag[0, 0] = "Hyacinthus_Orientalis/seed";
         playerBag[0, 1] = "Chrysanthemum/seed";
         playerBag[0, 2] = "Rose/seed";
-        SetShortcutImages();
     }
 
     // Update is called once per frame
@@ -69,7 +77,7 @@ public class Inventory : MonoBehaviour {
         for(int i = 0; i < playerBag.GetLength(0) && !stop; i++) {
             for(int j = 0; j < playerBag.GetLength(1) && !stop; j++) {
                 //Checking to see if the contents of the bag at the current index does not equal to null
-                if (playerBag[i, j] != null) {
+                if (playerBag[i, j] != null ) {
                     string[] tempValue = playerBag[i, j].Split('/');
                     //Split the value stored in the bag around '/' then loop through the values to compare next to the required values
                     for (int k = 0; k < tempValue.Length; k++) {
@@ -110,10 +118,11 @@ public class Inventory : MonoBehaviour {
     /// <param name="item">Item to be added to the bag</param>
     public void AddItem(string item) {
         //Get index for next available space in the inventory
-        int[] index = SearchBag(null);
+        int[] index = SearchBag("");
 
-        if (index != nullIndex) { 
+        if (index[0] != nullIndex[0] && index[1] != nullIndex[1]) {
             playerBag[index[0], index[1]] = item;
+            Debug.Log(index[0] + "," + index[1]);
             spaceInBag--;
         }
     }
@@ -126,8 +135,9 @@ public class Inventory : MonoBehaviour {
         //Get index for the item in the bag
         //int[] index = SearchBag(item);
 
-        if (index != nullIndex) {
-            playerBag[index[0], index[1]] = null;
+        if (index[0] != nullIndex[0] && index[1] != nullIndex[1]) {
+            playerBag[index[0], index[1]] = "/";
+            Debug.Log(playerBag[index[0], index[1]]);
             spaceInBag++;
         }
     }

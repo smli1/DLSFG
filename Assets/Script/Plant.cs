@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Plant{
 
-    private string m_name;
+    public string m_name;
     private string m_description;
     private float m_cost;
     private float m_quality;
-    private float[] m_growthStages;
+    private int[] m_growthStages;
 
     private string m_owner;
 
-    private float m_growth;
+    private int m_growth;
     private float m_water;
     private float m_fertiliser;
     private float m_value;
     private Emotion m_emotion;
+    private bool m_harvestable;
 
     public Plant(PlantBuilder builder) {
         m_name = builder.m_name;
@@ -28,6 +29,7 @@ public class Plant{
         m_growth = builder.m_growth;
         m_water = builder.m_water;
         m_emotion = builder.m_emotion;
+        m_harvestable = builder.m_harvestable;
     }
 
     //Getters and Setters
@@ -43,13 +45,13 @@ public class Plant{
     public void SetQuality(float quality) {
         m_quality = quality;
     }
-    public void SetGrowthStages(float[] growthStages) {
+    public void SetGrowthStages(int[] growthStages) {
        m_growthStages = growthStages;
     }
     public void SetOwner(string owner) {
         m_owner = owner;
     }
-    public void SetGrowth(float growth) {
+    public void SetGrowth(int growth) {
         m_growth = growth;
     }
     public void SetWater(float water) {
@@ -64,6 +66,9 @@ public class Plant{
     public void SetEmotion(Emotion emotion) {
         m_emotion = emotion;
     }
+    public void SetHarvestable(bool harvest) {
+        m_harvestable = harvest;
+    }
 
     public string GetName() {
         return m_name;
@@ -77,13 +82,13 @@ public class Plant{
     public float GetQuality() {
         return m_quality;
     }
-    public float[] GetGrowthStages() {
+    public int[] GetGrowthStages() {
         return m_growthStages;
     }
     public string GetOwner() {
         return m_owner;
     }
-    public float GetGrowth() {
+    public int GetGrowth() {
         return m_growth;
     }
     public float GetWater() {
@@ -97,5 +102,14 @@ public class Plant{
     }
     public Emotion GetEmotion() {
         return m_emotion;
+    }
+    public bool GetHarvestable() {
+        return m_harvestable;
+    }
+
+    public void IncrementGrowthStage() {
+        if(m_growth < m_growthStages.Length-1) {
+            m_growth++;
+        }
     }
 }

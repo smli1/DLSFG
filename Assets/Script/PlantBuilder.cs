@@ -8,15 +8,16 @@ public class PlantBuilder{
     public string m_description;
     public float m_cost;
     public float m_quality;
-    public float[] m_growthStages;
+    public int[] m_growthStages;
 
     public string m_owner;
 
-    public float m_growth;
+    public int m_growth;
     public float m_water;
     public float m_fertiliser;
     public float m_value;
     public Emotion m_emotion;
+    public bool m_harvestable;
 
     public PlantBuilder(string name) {
         if (name != null)
@@ -39,10 +40,11 @@ public class PlantBuilder{
     public PlantBuilder SetCommonValues() {
 
         m_owner = "";
-        m_growth = 0f;
+        m_growth = 0;
         m_water = 100f;
         m_value = m_cost;
         m_emotion = Emotion.Happy;
+        m_harvestable = false;
 
         return this;
     }

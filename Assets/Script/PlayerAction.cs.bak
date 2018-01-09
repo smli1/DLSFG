@@ -83,6 +83,18 @@ public class PlayerAction : MonoBehaviour {
                 switch (GetComponent<Inventory>().CurrentTool()) {
                     case Tool.Shovel:
                         //Must in stay action before use Shovel and not Ploughing
+<<<<<<< HEAD
+                        if (canPlant)
+                        {
+                            if (m_animator.GetBool("isStay") && !m_animator.GetBool("isPloughing")) {
+                            //Shovel Animation Start and player movement disable
+                            movementEnable = false;
+                            m_animator.SetBool("isPloughing", true);
+                            //Ploughing the ground ready to plant
+                            
+                                StartCoroutine( WaitForPloughingAnim(0.85f, GetDirection()));
+                                //Instantiate(ploughedGround, ploughingPoint.position+getDirection()* 1.2f, ploughingPoint.rotation);
+=======
                         if (m_animator.GetBool("isStay") && !m_animator.GetBool("isPloughing")) {
 
                             if (FindNearbyColliders("PloughedGround", radiusOverlap).Length == 0 && FindNearbyColliders("Flowering", radiusOverlap).Length == 0) {
@@ -93,6 +105,7 @@ public class PlayerAction : MonoBehaviour {
                                 if (canPlant) {
                                     StartCoroutine(WaitForPloughingAnim(0.85f));
                                 }
+>>>>>>> 38b598dba98423bb3e7927be8deb9df2bdd42728
                             }
                         }
                         break;

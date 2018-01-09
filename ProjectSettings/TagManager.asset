@@ -10,6 +10,8 @@ TagManager:
   - Field
   - Tree
   - Bush
+  - TheSun
+  - Harvest
   layers:
   - Default
   - TransparentFX
