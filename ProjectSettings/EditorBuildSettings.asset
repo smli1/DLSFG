@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scene/test.unity
+    path: Assets/Scene/FieldScene.unity
     guid: a44daa6a2d130514da477ee58d6347b5
+  - enabled: 1
+    path: Assets/SecondScene/FlowerShopScene.unity
+    guid: d66cc1855c9b7824d801ca1a0454c13f

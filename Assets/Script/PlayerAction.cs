@@ -58,7 +58,7 @@ public class PlayerAction : MonoBehaviour {
         SetDirection(m_animator.GetCurrentAnimatorStateInfo(0));
         
         if (m_animator.GetBool("isStay") && isPickedUp == false) {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Collider[] colliders = FindNearbyColliders("pickable");
 
@@ -77,17 +77,18 @@ public class PlayerAction : MonoBehaviour {
             }
 
             //Code for player actions when using current tools
-            if (Input.GetKeyDown(KeyCode.R)) {
+            if (Input.GetKeyDown(KeyCode.X)) {
                 switch (GetComponent<Inventory>().CurrentTool()) {
                     case Tool.Shovel:
                         //Must in stay action before use Shovel and not Ploughing
-                        if (m_animator.GetBool("isStay") && !m_animator.GetBool("isPloughing")) {
+                        if (canPlant)
+                        {
+                            if (m_animator.GetBool("isStay") && !m_animator.GetBool("isPloughing")) {
                             //Shovel Animation Start and player movement disable
                             movementEnable = false;
                             m_animator.SetBool("isPloughing", true);
                             //Ploughing the ground ready to plant
-                            if (canPlant)
-                            {
+                            
                                 StartCoroutine( WaitForPloughingAnim(0.85f, GetDirection()));
                                 //Instantiate(ploughedGround, ploughingPoint.position+getDirection()* 1.2f, ploughingPoint.rotation);
                             }
@@ -132,7 +133,7 @@ public class PlayerAction : MonoBehaviour {
         }
         else if (isPickedUp == true)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 movementEnable = false;
                 StartCoroutine(WaitToEnableMovement(0.75f));

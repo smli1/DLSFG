@@ -81,8 +81,8 @@ public class AutoIntensity : MonoBehaviour {
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skySpeed);
         
         //Keyboard controls for testing purposes
-        if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
-        if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
+        if (Input.GetKeyDown(KeyCode.O)) skySpeed *= 0.5f;
+        if (Input.GetKeyDown(KeyCode.P)) skySpeed *= 2f;
 
         growthMultiplier += (Mathf.Sin((Mathf.PI / 180) * transform.eulerAngles.x)+1)/2;
         timeOfDay = mainLight.transform.forward.x;

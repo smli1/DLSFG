@@ -18,8 +18,8 @@ public class Inventory : MonoBehaviour {
     [SerializeField]
     private Sprite[] toolImages; // order refer to Tool enum
     [SerializeField]
-    private Transform shortcutUI;
-    private Animator shortcutUIAnimator;
+    private Transform shortcutUI = null;
+    private Animator shortcutUIAnimator = null;
 
     // Use this for initialization
     void Start() {
@@ -32,15 +32,14 @@ public class Inventory : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (!isChanging && (Input.GetKeyDown(KeyCode.C)||Input.GetKeyDown(KeyCode.X))) {
+        if (!isChanging && (Input.GetKeyDown(KeyCode.Z) ||Input.GetKeyDown(KeyCode.C))) {
             isChanging = true;
-            if (Input.GetKeyDown(KeyCode.C)) {
+            if (Input.GetKeyDown(KeyCode.Z)) {
                 ChangeTool(true);
-
                 SetShortcutImages();
                 shortcutUIAnimator.Play("ChangeRight", 0);
-                StartCoroutine(WaitForChangingToolAnim(0.2f));
-            } else if (Input.GetKeyDown(KeyCode.X)) {
+                StartCoroutine(WaitForChangingToolAnim(0.1f));
+            } else if (Input.GetKeyDown(KeyCode.C)) {
                 ChangeTool(false);
 
                 SetShortcutImages();
