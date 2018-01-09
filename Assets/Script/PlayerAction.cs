@@ -85,19 +85,13 @@ public class PlayerAction : MonoBehaviour {
                         //Must in stay action before use Shovel and not Ploughing
                         if (m_animator.GetBool("isStay") && !m_animator.GetBool("isPloughing")) {
 
-                            Collider[] colliders = FindNearbyColliders("PloughedGround", radiusOverlap);
-
-                            if (colliders.Length == 0) {
-                                Collider[] colliders2 = FindNearbyColliders("Flowering", radiusOverlap);
-
-                                if (colliders2.Length == 0) {
-                                    //Shovel Animation Start and player movement disable
-                                    movementEnable = false;
-                                    m_animator.SetBool("isPloughing", true);
-                                    //Ploughing the ground ready to plant
-                                    if (canPlant) {
-                                        StartCoroutine(WaitForPloughingAnim(0.85f, GetDirection()));
-                                    }
+                            if (FindNearbyColliders("PloughedGround", radiusOverlap).Length == 0 && FindNearbyColliders("Flowering", radiusOverlap).Length == 0) {
+                                //Shovel Animation Start and player movement disable
+                                movementEnable = false;
+                                m_animator.SetBool("isPloughing", true);
+                                //Ploughing the ground ready to plant
+                                if (canPlant) {
+                                    StartCoroutine(WaitForPloughingAnim(0.85f));
                                 }
                             }
                         }
@@ -189,16 +183,24 @@ public class PlayerAction : MonoBehaviour {
         return true;
     }
 
-    IEnumerator WaitForPloughingAnim(float time , Vector3 direction)
+    IEnumerator WaitForPloughingAnim(float time)
     {
         yield return new WaitForSeconds(time);
 
         movementEnable = true;
         m_animator.SetBool("isPloughing", false);
 
-        
-        //Create ploughedGround
-        GameObject temp = Instantiate(ploughedGround, ploughingPoint.position + direction * 1.2f, ploughingPoint.rotation).gameObject;
+        if (FindNearbyColliders("Harvest", radiusOverlap).Length == 0) {
+            //Create ploughedGround
+            PloughGround();
+            
+        }else {
+            FindAndHarvest();
+        }
+    }
+
+    public void PloughGround() {
+        GameObject temp = Instantiate(ploughedGround, ploughingPoint.position + GetDirection() * 1.2f, ploughingPoint.rotation).gameObject;
 
         //ploughedGround Fade Effect
         Color tempColor = temp.GetComponent<SpriteRenderer>().material.color;
@@ -207,9 +209,22 @@ public class PlayerAction : MonoBehaviour {
         while (tempColor.a < 1) {
             tempColor.a += 0.2f;
             temp.GetComponent<SpriteRenderer>().material.color = tempColor;
-            yield return new WaitForSeconds(0.01f);
         }
+    }
 
+    public void FindAndHarvest() {
+        Collider[] colliders = FindNearbyColliders("Harvest", 0.6f);
+
+        if (colliders.Length != 0) {
+            GameObject nearbyGround = ClosestCollider(colliders).gameObject;
+            GameObject nearbyPlant = nearbyGround.transform.GetChild(0).gameObject;
+
+            inventory.AddItem(nearbyPlant.GetComponent<PlantBehaviour>().plant.GetName() + "/flower");
+
+
+            Destroy(nearbyPlant);
+            nearbyGround.transform.tag = "PloughedGround";
+        }
     }
 
     IEnumerator WaitToEnableMovement(float time)
