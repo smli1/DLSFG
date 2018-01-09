@@ -27,6 +27,8 @@ public class PlantBehaviour : MonoBehaviour {
             GetComponent<Animator>().SetInteger("Stage", plant.GetGrowth());
             if(plant.GetGrowth() == 3) {
                 plant.SetHarvestable(true);
+                gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                gameObject.transform.parent.transform.tag = "Harvest";
             }
             
             Debug.Log("Plant has grown: " + plant.GetGrowth());

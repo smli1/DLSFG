@@ -20,6 +20,8 @@ public class PlayerAction : MonoBehaviour {
     public Transform ploughedGround;
     public Transform seed;
 
+    public float radiusOverlap = 2f;
+
     private Inventory inventory;
     #endregion
 
@@ -60,7 +62,7 @@ public class PlayerAction : MonoBehaviour {
         if (m_animator.GetBool("isStay") && isPickedUp == false) {
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                Collider[] colliders = FindNearbyColliders("pickable");
+                Collider[] colliders = FindNearbyColliders("pickable", 0.6f);
 
                 if (colliders.Length != 0)
                 {
@@ -82,14 +84,21 @@ public class PlayerAction : MonoBehaviour {
                     case Tool.Shovel:
                         //Must in stay action before use Shovel and not Ploughing
                         if (m_animator.GetBool("isStay") && !m_animator.GetBool("isPloughing")) {
-                            //Shovel Animation Start and player movement disable
-                            movementEnable = false;
-                            m_animator.SetBool("isPloughing", true);
-                            //Ploughing the ground ready to plant
-                            if (canPlant)
-                            {
-                                StartCoroutine( WaitForPloughingAnim(0.85f, GetDirection()));
-                                //Instantiate(ploughedGround, ploughingPoint.position+getDirection()* 1.2f, ploughingPoint.rotation);
+
+                            Collider[] colliders = FindNearbyColliders("PloughedGround", radiusOverlap);
+
+                            if (colliders.Length == 0) {
+                                Collider[] colliders2 = FindNearbyColliders("Flowering", radiusOverlap);
+
+                                if (colliders2.Length == 0) {
+                                    //Shovel Animation Start and player movement disable
+                                    movementEnable = false;
+                                    m_animator.SetBool("isPloughing", true);
+                                    //Ploughing the ground ready to plant
+                                    if (canPlant) {
+                                        StartCoroutine(WaitForPloughingAnim(0.85f, GetDirection()));
+                                    }
+                                }
                             }
                         }
                         break;
@@ -100,7 +109,7 @@ public class PlayerAction : MonoBehaviour {
                         if (index[0] != -1) {
 
                             //Search infront for ground to plant seed
-                            Collider[] colliders = FindNearbyColliders("PloughedGround");
+                            Collider[] colliders = FindNearbyColliders("PloughedGround", 0.6f);
 
                             if (colliders.Length != 0) {
                                 GameObject nearbyGround = ClosestCollider(colliders).gameObject;
@@ -184,23 +193,23 @@ public class PlayerAction : MonoBehaviour {
     {
         yield return new WaitForSeconds(time);
 
-        //Create ploughedGround
-        GameObject temp = Instantiate(ploughedGround, ploughingPoint.position + direction * 1.2f, ploughingPoint.rotation).gameObject;
-  
         movementEnable = true;
         m_animator.SetBool("isPloughing", false);
+
+        
+        //Create ploughedGround
+        GameObject temp = Instantiate(ploughedGround, ploughingPoint.position + direction * 1.2f, ploughingPoint.rotation).gameObject;
 
         //ploughedGround Fade Effect
         Color tempColor = temp.GetComponent<SpriteRenderer>().material.color;
         tempColor.a = 0;
         temp.GetComponent<SpriteRenderer>().material.color = tempColor;
-        while (tempColor.a < 1)
-        {
+        while (tempColor.a < 1) {
             tempColor.a += 0.2f;
             temp.GetComponent<SpriteRenderer>().material.color = tempColor;
             yield return new WaitForSeconds(0.01f);
         }
-        
+
     }
 
     IEnumerator WaitToEnableMovement(float time)
@@ -271,8 +280,8 @@ public class PlayerAction : MonoBehaviour {
         return closestCol;
     }
 
-    public Collider[] FindNearbyColliders(string tag) {
-        Collider[] colliders = Physics.OverlapSphere(transform.position + GetDirection() * 0.8f - new Vector3(0, 1.0f, 0), 0.6f);
+    public Collider[] FindNearbyColliders(string tag, float radius) {
+        Collider[] colliders = Physics.OverlapSphere(transform.position + GetDirection() * 0.8f - new Vector3(0, 1.0f, 0), radius);
         Stack<Collider> filter = new Stack<Collider>();
         foreach (Collider c in colliders) {
             if (c.gameObject.tag != tag) continue;
