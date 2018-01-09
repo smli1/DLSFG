@@ -17,6 +17,7 @@ public class PlantBuilder{
     public float m_fertiliser;
     public float m_value;
     public Emotion m_emotion;
+    public bool m_harvestable;
 
     public PlantBuilder(string name) {
         if (name != null)
@@ -43,6 +44,7 @@ public class PlantBuilder{
         m_water = 100f;
         m_value = m_cost;
         m_emotion = Emotion.Happy;
+        m_harvestable = false;
 
         return this;
     }

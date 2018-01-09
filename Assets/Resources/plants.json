@@ -4,161 +4,161 @@
             "description": "",
             "cost": 106,
             "quality": 15,
-            "growthstage": [5, 11, 16]
+            "growthstage": [4, 8, 12, 16]
         },
         {
             "name": "Convallaria_Majalis",
             "description": "",
             "cost": 66,
             "quality": 15,
-            "growthstage": [3, 7, 10]
+            "growthstage": [3, 5, 8, 10]
         },
         {
             "name": "Hyacinthus_Orientalis",
             "description": "",
             "cost": 53,
             "quality": 15,
-            "growthstage": [3, 5, 8]
+            "growthstage": [2, 4, 6, 8]
         },
         {
             "name": "Viola_Tricolor",
             "description": "",
             "cost": 7,
             "quality": 5,
-            "growthstage": [1, 2, 3]
+            "growthstage": [1, 2, 3, 4]
         },
         {
             "name": "Pear_Blossom",
             "description": "",
             "cost": 33,
             "quality": 5,
-            "growthstage": [5, 10, 15]
+            "growthstage": [4, 7, 11, 15]
         },
         {
             "name": "Rhododendron",
             "description": "",
             "cost": 35,
             "quality": 10,
-            "growthstage": [3, 5, 8]
+            "growthstage": [2, 4, 6, 8]
         },
         {
             "name": "Lotus",
             "description": "",
             "cost": 53,
             "quality": 10,
-            "growthstage": [4, 8, 12]
+            "growthstage": [3, 6, 9, 12]
         },
         {
             "name": "Validus",
             "description": "",
             "cost": 18,
             "quality": 5,
-            "growthstage": [3, 5, 8]
+            "growthstage": [2, 4, 6, 8]
         },
         {
             "name": "Rose",
             "description": "",
             "cost": 22,
             "quality": 5,
-            "growthstage": [3, 7, 10]
+            "growthstage": [3, 5, 7, 10]
         },
         {
             "name": "Yellow_Iris",
             "description": "",
             "cost": 11,
             "quality": 5,
-            "growthstage": [2, 3, 5]
+            "growthstage": [2, 3, 5, 7]
         },
         {
             "name": "Pickerelweed",
             "description": "",
             "cost": 132,
             "quality": 20,
-            "growthstage": [5, 10, 15]
+            "growthstage": [4, 7, 12, 15]
         },
         {
             "name": "Chrysanthemum",
             "description": "",
             "cost": 9,
             "quality": 5,
-            "growthstage": [1, 3, 4]
+            "growthstage": [1, 2, 3, 4]
         },
         {
             "name": "Melastoma",
             "description": "",
             "cost": 44,
             "quality": 10,
-            "growthstage": [3, 7, 10]
+            "growthstage": [2, 5, 7, 10]
         },
         {
             "name": "Begonia",
             "description": "",
             "cost": 26,
             "quality": 10,
-            "growthstage": [2, 4, 6]
+            "growthstage": [2, 4, 6, 8]
         },
         {
             "name": "Hibiscus",
             "description": "",
             "cost": 35,
             "quality": 10,
-            "growthstage": [3, 5, 8]
+            "growthstage": [2, 4, 6, 8]
         },
         {
             "name": "Water_Hyacinth",
             "description": "",
             "cost": 79,
             "quality": 15,
-            "growthstage": [4, 8, 12]
+            "growthstage": [3, 6, 9, 12]
         },
         {
             "name": "Tulipa",
             "description": "",
             "cost": 53,
             "quality": 10,
-            "growthstage": [4, 8, 12]
+            "growthstage": [3, 6, 9, 12]
         },
         {
             "name": "Poinsettia",
             "description": "",
             "cost": 15,
             "quality": 5,
-            "growthstage": [2, 5, 7]
+            "growthstage": [2, 4, 6, 8]
         },
         {
             "name": "Camellia",
             "description": "",
             "cost": 132,
             "quality": 15,
-            "growthstage": [7, 13, 20]
+            "growthstage": [5, 10, 15, 20]
         },
         {
             "name": "Narcissus",
             "description": "",
             "cost": 44,
             "quality": 15,
-            "growthstage": [3, 7, 10]
+            "growthstage": [2, 5, 7, 10]
         },
         {
             "name": "Jatropha_Pandurifolia",
             "description": "",
             "cost": 176,
             "quality": 20,
-            "growthstage": [7, 13, 20]
+            "growthstage": [5, 10, 15, 20]
         },
         {
             "name": "Rafflesia_Arnoldii",
             "description": "",
             "cost": 440,
             "quality": 25,
-            "growthstage": [13, 27, 40]
+            "growthstage": [10, 20, 20, 40]
         },
         {
             "name": "Yellow_Water_Lily",
             "description": "",
             "cost": 13,
             "quality": 5,
-            "growthstage": [2, 4, 6]
+            "growthstage": [2, 4, 6, 8]
         }
     ]
 }

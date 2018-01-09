@@ -6,7 +6,7 @@ public class PlantBehaviour : MonoBehaviour {
 
     public Plant plant;
 
-    private float[] growingTimes = new float[3];
+    private float[] growingTimes = new float[4];
     private float timeOfPlanting;
 
     private AutoIntensity theSun;
@@ -22,9 +22,14 @@ public class PlantBehaviour : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-		if(theSun.GetCurrentTime() >= growingTimes[plant.GetGrowth()]){
+		if(theSun.GetCurrentTime() >= growingTimes[plant.GetGrowth()] && plant.GetHarvestable() == false){
             plant.IncrementGrowthStage();
-            Debug.Log("Plant has grown: " + theSun.GetCurrentTime() + " - " + plant.GetCost());
+            GetComponent<Animator>().SetInteger("Stage", plant.GetGrowth());
+            if(plant.GetGrowth() == 3) {
+                plant.SetHarvestable(true);
+            }
+            
+            Debug.Log("Plant has grown: " + plant.GetGrowth());
         }
 	}
 

@@ -17,6 +17,7 @@ public class Plant{
     private float m_fertiliser;
     private float m_value;
     private Emotion m_emotion;
+    private bool m_harvestable;
 
     public Plant(PlantBuilder builder) {
         m_name = builder.m_name;
@@ -28,6 +29,7 @@ public class Plant{
         m_growth = builder.m_growth;
         m_water = builder.m_water;
         m_emotion = builder.m_emotion;
+        m_harvestable = builder.m_harvestable;
     }
 
     //Getters and Setters
@@ -64,6 +66,9 @@ public class Plant{
     public void SetEmotion(Emotion emotion) {
         m_emotion = emotion;
     }
+    public void SetHarvestable(bool harvest) {
+        m_harvestable = harvest;
+    }
 
     public string GetName() {
         return m_name;
@@ -98,9 +103,12 @@ public class Plant{
     public Emotion GetEmotion() {
         return m_emotion;
     }
+    public bool GetHarvestable() {
+        return m_harvestable;
+    }
 
     public void IncrementGrowthStage() {
-        if(m_growth < 2) {
+        if(m_growth < m_growthStages.Length-1) {
             m_growth++;
         }
     }
