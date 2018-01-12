@@ -12,6 +12,7 @@ TagManager:
   - Bush
   - TheSun
   - Harvest
+  - WateredGround
   layers:
   - Default
   - TransparentFX

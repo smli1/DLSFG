@@ -9,6 +9,8 @@ public class PlantBehaviour : MonoBehaviour {
     private float[] growingTimes = new float[4];
     private float timeOfPlanting;
 
+    private bool canGrow = false;
+
     private AutoIntensity theSun;
 
     // Use this for initialization
@@ -16,13 +18,10 @@ public class PlantBehaviour : MonoBehaviour {
         GetComponent<Animator>().runtimeAnimatorController = Resources.Load("Animators/" + plant.GetName()) as RuntimeAnimatorController;
 
         theSun = GameObject.FindGameObjectWithTag("TheSun").GetComponent<AutoIntensity>();
-        timeOfPlanting = theSun.GetCurrentTime();
-
-        CalculateTimeofGrowing();
     }
 	// Update is called once per frame
 	void Update () {
-		if(theSun.GetCurrentTime() >= growingTimes[plant.GetGrowth()] && plant.GetHarvestable() == false){
+		if(theSun.GetCurrentTime() >= growingTimes[plant.GetGrowth()] && plant.GetHarvestable() == false && canGrow == true){
             plant.IncrementGrowthStage();
             GetComponent<Animator>().SetInteger("Stage", plant.GetGrowth());
             if(plant.GetGrowth() == 3) {
@@ -32,6 +31,14 @@ public class PlantBehaviour : MonoBehaviour {
             }
             
             Debug.Log("Plant has grown: " + plant.GetGrowth());
+        }
+
+        if(canGrow == false && gameObject.transform.parent.GetComponent<Renderer>().material.GetColor("_Color") == Color.gray) {
+            timeOfPlanting = theSun.GetCurrentTime();
+
+            CalculateTimeofGrowing();
+
+            canGrow = true;
         }
 	}
 

@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: e816abfdaec8dea439f2c872416efd99
-timeCreated: 1515508466
+timeCreated: 1515784038
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: emotion_0
+    21300002: emotion_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -90,6 +91,20 @@ TextureImporter:
         height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: emotion_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 126
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -60,7 +60,7 @@ public class PlayerAction : MonoBehaviour {
         SetDirection(m_animator.GetCurrentAnimatorStateInfo(0));
         
         if (m_animator.GetBool("isStay") && isPickedUp == false) {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 Collider[] colliders = FindNearbyColliders("pickable", 0.6f);
 
@@ -79,7 +79,7 @@ public class PlayerAction : MonoBehaviour {
             }
 
             //Code for player actions when using current tools
-            if (Input.GetKeyDown(KeyCode.X)) {
+            if (Input.GetKeyDown(KeyCode.R)) {
                 switch (GetComponent<Inventory>().CurrentTool()) {
                     case Tool.Shovel:
                         //Must in stay action before use Shovel and not Ploughing
@@ -129,13 +129,31 @@ public class PlayerAction : MonoBehaviour {
 
                     case Tool.WateringCan:
                         //Search infront for seed to water
+                        Collider[] colliders1 = FindNearbyColliders("Flowering", 0.6f);
+
+                        Collider[] colliders2 = FindNearbyColliders("PloughedGround", 0.6f);
+
+                        List<Collider> collider = new List<Collider>();
+
+                        collider.AddRange(colliders2);
+                        collider.AddRange(colliders1);
+
+                        Collider[] collider3 = collider.ToArray();
+
+                        if(collider3.Length != 0) {
+                            GameObject nearbyGround = ClosestCollider(collider3).gameObject;
+
+                            nearbyGround.GetComponent<Renderer>().material.SetColor("_Color", Color.gray);
+
+                            nearbyGround.transform.GetChild(0).gameObject.SetActive(true);
+                        }
                         break;
                 }
             }
         }
         else if (isPickedUp == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 movementEnable = false;
                 StartCoroutine(WaitToEnableMovement(0.75f));
@@ -217,13 +235,15 @@ public class PlayerAction : MonoBehaviour {
 
         if (colliders.Length != 0) {
             GameObject nearbyGround = ClosestCollider(colliders).gameObject;
-            GameObject nearbyPlant = nearbyGround.transform.GetChild(0).gameObject;
+            GameObject nearbyPlant = nearbyGround.transform.GetChild(1).gameObject;
 
             inventory.AddItem(nearbyPlant.GetComponent<PlantBehaviour>().plant.GetName() + "/flower");
 
 
             Destroy(nearbyPlant);
             nearbyGround.transform.tag = "PloughedGround";
+            nearbyGround.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            nearbyGround.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 

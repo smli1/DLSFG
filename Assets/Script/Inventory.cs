@@ -48,14 +48,14 @@ public class Inventory : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (!isChanging && (Input.GetKeyDown(KeyCode.Z) ||Input.GetKeyDown(KeyCode.C))) {
+        if (!isChanging && (Input.GetKeyDown(KeyCode.Q) ||Input.GetKeyDown(KeyCode.E))) {
             isChanging = true;
-            if (Input.GetKeyDown(KeyCode.Z)) {
+            if (Input.GetKeyDown(KeyCode.Q)) {
                 ChangeTool(true);
                 SetShortcutImages();
                 shortcutUIAnimator.Play("ChangeRight", 0);
                 StartCoroutine(WaitForChangingToolAnim(0.1f));
-            } else if (Input.GetKeyDown(KeyCode.C)) {
+            } else if (Input.GetKeyDown(KeyCode.E)) {
                 ChangeTool(false);
 
                 SetShortcutImages();
