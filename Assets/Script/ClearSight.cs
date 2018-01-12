@@ -27,6 +27,10 @@ public class ClearSight : MonoBehaviour {
             Renderer R = hit.collider.GetComponent<Renderer>();
             if (R == null)
                 continue;
+            if (R.gameObject.tag == "pickable")
+            {
+                continue;
+            }
             if (hit.collider.gameObject.tag != "Player" && hit.collider.gameObject.tag != "Field") {
                 AutoTransparent AT = R.GetComponent<AutoTransparent>();
                 if (AT == null) {

@@ -87,8 +87,8 @@ public class AutoIntensity : MonoBehaviour {
         }
         
         //Keyboard controls for testing purposes
-        if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
-        if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
+        if (Input.GetKeyDown(KeyCode.O)) skySpeed *= 0.5f;
+        if (Input.GetKeyDown(KeyCode.P)) skySpeed *= 2f;
 
 
         NormaliseRotation();
