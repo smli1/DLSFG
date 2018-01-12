@@ -36,6 +36,14 @@ public class Inventory : MonoBehaviour {
         playerBag[0, 0] = "Hyacinthus_Orientalis/seed";
         playerBag[0, 1] = "Chrysanthemum/seed";
         playerBag[0, 2] = "Rose/seed";
+        playerBag[0, 3] = "Begonia/seed";
+        playerBag[0, 4] = "Clivia/seed";
+        playerBag[0, 5] = "Convallaria_Majalis/seed";
+        playerBag[1, 0] = "Jatropha_Pandurifolia/seed";
+        playerBag[1, 1] = "Poinsettia/seed";
+        playerBag[1, 2] = "Tulipa/seed";
+        playerBag[1, 3] = "Viola_Tricolor/seed";
+        playerBag[1, 4] = "Yellow_Iris/seed";
     }
 
     // Update is called once per frame

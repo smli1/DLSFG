@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4905118891150870}
   - component: {fileID: 212435063405497124}
   m_Layer: 0
-  m_Name: floor_test
+  m_Name: PloughedGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880576365972476}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -3.69, y: 0, z: 5.61}
-  m_LocalScale: {x: 6.6007657, y: 6.6007648, z: 6.6007648}
+  m_LocalPosition: {x: -3.69, y: 0.47208, z: 5.6032}
+  m_LocalScale: {x: 3.178203, y: 3.1782026, z: 3.1782026}
   m_Children:
   - {fileID: 4905118891150870}
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ Transform:
   m_GameObject: {fileID: 1783883643087354}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.002000646}
-  m_LocalScale: {x: 0.8830423, y: 0.88304186, z: 0.88304186}
+  m_LocalScale: {x: 1.1526997, y: 1.1526991, z: 1.1526991}
   m_Children: []
   m_Father: {fileID: 4827746097182128}
   m_RootOrder: 0
@@ -133,7 +133,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ddb78c9b9cc8b8349baceb0eaf197366, type: 3}
+  m_Sprite: {fileID: 21300004, guid: ddb78c9b9cc8b8349baceb0eaf197366, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

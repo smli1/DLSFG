@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 95840046792541050}
   - component: {fileID: 65989295656576108}
   - component: {fileID: 65756432115918206}
+  - component: {fileID: 65421543094359112}
   m_Layer: 0
   m_Name: Flower03-Hyacinthus_Orientalis
   m_TagString: Untagged
@@ -40,7 +41,7 @@ GameObject:
   - component: {fileID: 4522719227480374}
   - component: {fileID: 212564994863389344}
   m_Layer: 0
-  m_Name: floor_test
+  m_Name: PloughedGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,8 +54,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1236155650772390}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 4.99, y: 0, z: 3.91}
-  m_LocalScale: {x: 13.511503, y: 13.511511, z: 13.511511}
+  m_LocalPosition: {x: 4.99, y: 0.42574, z: 3.9036}
+  m_LocalScale: {x: 8.6554165, y: 8.655422, z: 8.655422}
   m_Children:
   - {fileID: 4522719227480374}
   m_Father: {fileID: 0}
@@ -68,11 +69,23 @@ Transform:
   m_GameObject: {fileID: 1617519819976918}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.002}
-  m_LocalScale: {x: 0.4025342, y: 0.402534, z: 0.402534}
+  m_LocalScale: {x: 0.5481372, y: 0.548137, z: 0.548137}
   m_Children: []
   m_Father: {fileID: 4034652543969280}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &65421543094359112
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1236155650772390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.099999994, y: 0.09, z: 0.05}
+  m_Center: {x: 0, y: 0.045, z: 0}
 --- !u!65 &65756432115918206
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -188,7 +201,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 72d801090969fe549a6d74b250479821, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 72d801090969fe549a6d74b250479821, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

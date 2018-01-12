@@ -39,6 +39,10 @@ public class AutoIntensity : MonoBehaviour {
     public float timeOfDay = 0;
     private Vector3 rotationOfSun = Vector3.zero;
 
+    public GameObject pin;
+
+    public int day = 1;
+
     void Start() {
 
         mainLight = GetComponent<Light>();
@@ -94,6 +98,8 @@ public class AutoIntensity : MonoBehaviour {
         NormaliseRotation();
         growthMultiplier += (Mathf.Sin((Mathf.PI / 180) * rotationOfSun.x)+1)/2;
         timeOfDay = (rotationOfSun.x)/15;
+
+        pin.transform.rotation = Quaternion.Euler(0, 0, -(rotationOfSun.x + 90));
     }
 
     public void NormaliseRotation(){
