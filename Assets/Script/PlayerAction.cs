@@ -82,9 +82,13 @@ public class PlayerAction : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.R)) {
                 switch (GetComponent<Inventory>().CurrentTool()) {
                     case Tool.Shovel:
+                        if (FindNearbyColliders("pickable", radiusOverlap).Length != 0)
+                        {
+                            break;
+                        }
                         //Must in stay action before use Shovel and not Ploughing
                         if (m_animator.GetBool("isStay") && !m_animator.GetBool("isPloughing")) {
-
+                            
                             if (FindNearbyColliders("PloughedGround", radiusOverlap).Length == 0 && FindNearbyColliders("Flowering", radiusOverlap).Length == 0) {
                                 //Shovel Animation Start and player movement disable
                                 movementEnable = false;
@@ -139,13 +143,13 @@ public class PlayerAction : MonoBehaviour {
                         collider.AddRange(colliders1);
 
                         Collider[] collider3 = collider.ToArray();
-
-                        if(collider3.Length != 0) {
+                        if (collider3.Length != 0) {
                             GameObject nearbyGround = ClosestCollider(collider3).gameObject;
-
-                            nearbyGround.GetComponent<Renderer>().material.SetColor("_Color", Color.gray);
-
-                            nearbyGround.transform.GetChild(0).gameObject.SetActive(true);
+                            if (!nearbyGround.transform.GetChild(0).gameObject.activeSelf) {
+                                movementEnable = false;
+                                m_animator.SetBool("isWatering", true);
+                                StartCoroutine(WaitForWateringAnim(0.9f, nearbyGround));
+                            }
                         }
                         break;
                 }
@@ -215,6 +219,20 @@ public class PlayerAction : MonoBehaviour {
         }else {
             FindAndHarvest();
         }
+    }
+
+    IEnumerator WaitForWateringAnim(float time, GameObject water)
+    {
+        yield return new WaitForSeconds(time);
+
+        movementEnable = true;
+        m_animator.SetBool("isWatering", false);
+
+
+        water.GetComponent<Renderer>().material.SetColor("_Color", Color.gray);
+
+        water.transform.GetChild(0).gameObject.SetActive(true);
+        
     }
 
     public void PloughGround() {
