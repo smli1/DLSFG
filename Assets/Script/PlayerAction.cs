@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAction : MonoBehaviour {
 
@@ -23,6 +24,9 @@ public class PlayerAction : MonoBehaviour {
     public float radiusOverlap = 2f;
 
     private Inventory inventory;
+
+    public Image alert;
+    public Text alertText;
     #endregion
 
     #region Methods
@@ -90,13 +94,21 @@ public class PlayerAction : MonoBehaviour {
                         if (m_animator.GetBool("isStay") && !m_animator.GetBool("isPloughing")) {
                             
                             if (FindNearbyColliders("PloughedGround", radiusOverlap).Length == 0 && FindNearbyColliders("Flowering", radiusOverlap).Length == 0) {
-                                //Shovel Animation Start and player movement disable
-                                movementEnable = false;
-                                m_animator.SetBool("isPloughing", true);
                                 //Ploughing the ground ready to plant
                                 if (canPlant) {
+                                    //Shovel Animation Start and player movement disable
+                                    movementEnable = false;
+                                    m_animator.SetBool("isPloughing", true);
                                     StartCoroutine(WaitForPloughingAnim(0.85f));
+                                } else {
+                                    alert.gameObject.SetActive(true);
+                                    alertText.text = "I should only dig in the field...";
+                                    StartCoroutine(TurnAlertOff());
                                 }
+                            } else {
+                                alert.gameObject.SetActive(true);
+                                alertText.text = "I have already dug here...";
+                                StartCoroutine(TurnAlertOff());
                             }
                         }
                         break;
@@ -126,6 +138,10 @@ public class PlayerAction : MonoBehaviour {
                                 inventory.RemoveItem(index);
 
                                 Debug.Log(newSeed.GetComponent<PlantBehaviour>().GetPlant().GetName());
+                            } else {
+                                alert.gameObject.SetActive(true);
+                                alertText.text = "There is no where to plant the seed...";
+                                StartCoroutine(TurnAlertOff());
                             }
                         }
 
@@ -150,6 +166,10 @@ public class PlayerAction : MonoBehaviour {
                                 m_animator.SetBool("isWatering", true);
                                 StartCoroutine(WaitForWateringAnim(0.9f, nearbyGround));
                             }
+                        } else {
+                            alert.gameObject.SetActive(true);
+                            alertText.text = "There is nothing to water...";
+                            StartCoroutine(TurnAlertOff());
                         }
                         break;
                 }
@@ -233,6 +253,11 @@ public class PlayerAction : MonoBehaviour {
 
         water.transform.GetChild(0).gameObject.SetActive(true);
         
+    }
+
+    IEnumerator TurnAlertOff() {
+        yield return new WaitForSeconds(3f);
+        alert.gameObject.SetActive(false);
     }
 
     public void PloughGround() {
