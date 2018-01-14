@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ec1b498f962e4f24780fe71a12fe9960
-timeCreated: 1515872272
+guid: fd533fccf9951c34dad43ce173a14cb8
+timeCreated: 1515970287
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: textBox_0
+    21300000: Flower09-Rose_0
+    21300002: Flower09-Rose_1
+    21300004: Flower09-Rose_2
+    21300006: Flower09-Rose_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -35,7 +38,7 @@ TextureImporter:
     aniso: -1
     mipBias: -1
     wrapU: 1
-    wrapV: 1
+    wrapV: -1
     wrapW: -1
   nPOTScale: 0
   lightmap: 0
@@ -43,9 +46,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 8, y: 4, z: 0, w: 0}
+  alignment: 9
+  spritePivot: {x: 0.564707, y: 0.5166389}
+  spriteBorder: {x: 73, y: 10, z: 52, w: 5}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -76,26 +79,62 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: textBox_0
+      name: Flower09-Rose_0
       rect:
         serializedVersion: 2
         x: 8
-        y: 4
-        width: 184
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 11
+        width: 24
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-    outline:
-    - - {x: -94, y: 24}
-      - {x: -93, y: 21}
-      - {x: -91, y: -17}
-      - {x: -86, y: -22}
-      - {x: 96, y: -22}
-      - {x: 96, y: 24}
+    - serializedVersion: 2
+      name: Flower09-Rose_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 11
+        width: 25
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower09-Rose_2
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 10
+        width: 25
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower09-Rose_3
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 11
+        width: 32
+        height: 36
+      alignment: 9
+      pivot: {x: 0.6213255, y: 0.046219084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
     physicsShape: []
   spritePackingTag: 
   userData: 

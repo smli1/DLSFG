@@ -20,11 +20,16 @@ public class Inventory : MonoBehaviour {
     [SerializeField]
     private Transform shortcutUI = null;
     private Animator shortcutUIAnimator = null;
+    [SerializeField]
+    private GameObject inventoryUI;
+
+    Transform slots;
 
     // Use this for initialization
     void Start() {
         shortcutUIAnimator = shortcutUI.GetComponent<Animator>();
- 
+        slots = inventoryUI.transform.GetChild(0).GetChild(0).GetChild(0);
+        Debug.Log(slots);
         SetShortcutImages();
 
         for(int i = 0; i < playerBag.GetLength(0); i++){
@@ -62,7 +67,34 @@ public class Inventory : MonoBehaviour {
                 shortcutUIAnimator.Play("ChangeLeft", 0);
                 StartCoroutine(WaitForChangingToolAnim(0.1f));
             }
-            
+        }
+        if (Input.GetKeyDown(KeyCode.B)) {
+            if (inventoryUI.activeSelf)
+            {
+                inventoryUI.SetActive(false);
+            }
+            else
+            {
+                inventoryUI.SetActive(true);
+            }
+        }
+        if (slots && inventoryUI.activeSelf) {
+            for (int i = 0; i < slots.childCount; i++)
+            {
+                Transform slot = slots.GetChild(i);
+                string[] p = slot.name.Split('_');
+                int y;
+                int.TryParse(p[1], out y);
+                int x;
+                int.TryParse(p[2], out x);
+                //Debug.Log("x:" + x + ",y:" + y);
+                if (playerBag[y, x].Length > 1)
+                {
+                    slot.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Images/" + playerBag[y, x].Split('/')[0])[1];
+                    //Debug.Log(slot.GetComponentInChildren<Image>().sprite);
+                }
+
+            }
         }
 	}
 

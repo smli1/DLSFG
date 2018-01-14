@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ec1b498f962e4f24780fe71a12fe9960
-timeCreated: 1515872272
+guid: 235362fbae84c334abd84606287ba317
+timeCreated: 1515970112
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: textBox_0
+    21300000: Flower01-Clivia_0
+    21300002: Flower01-Clivia_1
+    21300004: Flower01-Clivia_2
+    21300006: Flower01-Clivia_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -35,7 +38,7 @@ TextureImporter:
     aniso: -1
     mipBias: -1
     wrapU: 1
-    wrapV: 1
+    wrapV: -1
     wrapW: -1
   nPOTScale: 0
   lightmap: 0
@@ -43,9 +46,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 8, y: 4, z: 0, w: 0}
+  alignment: 9
+  spritePivot: {x: 0.6072287, y: 0.45004612}
+  spriteBorder: {x: 95, y: 2, z: 48, w: 8}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -76,26 +79,62 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: textBox_0
+      name: Flower01-Clivia_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 4
-        width: 184
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 45
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5310359, y: 0.044145897}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-    outline:
-    - - {x: -94, y: 24}
-      - {x: -93, y: 21}
-      - {x: -91, y: -17}
-      - {x: -86, y: -22}
-      - {x: 96, y: -22}
-      - {x: 96, y: 24}
+    - serializedVersion: 2
+      name: Flower01-Clivia_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 4
+        width: 47
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5297152, y: 0.044145897}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower01-Clivia_2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 3
+        width: 47
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5272389, y: 0.037746288}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower01-Clivia_3
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 2
+        width: 38
+        height: 34
+      alignment: 9
+      pivot: {x: 0.475498, y: 0.03423071}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
     physicsShape: []
   spritePackingTag: 
   userData: 

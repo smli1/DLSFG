@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ec1b498f962e4f24780fe71a12fe9960
-timeCreated: 1515872272
+guid: 504063793f99a68498fbbd28955bc604
+timeCreated: 1515970311
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: textBox_0
+    21300000: Flower17-Tulipa_0
+    21300002: Flower17-Tulipa_1
+    21300004: Flower17-Tulipa_2
+    21300006: Flower17-Tulipa_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -35,7 +38,7 @@ TextureImporter:
     aniso: -1
     mipBias: -1
     wrapU: 1
-    wrapV: 1
+    wrapV: -1
     wrapW: -1
   nPOTScale: 0
   lightmap: 0
@@ -43,9 +46,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 8, y: 4, z: 0, w: 0}
+  alignment: 9
+  spritePivot: {x: 0.5610094, y: 0.5942872}
+  spriteBorder: {x: 76, y: 12, z: 58, w: 2}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -76,26 +79,62 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: textBox_0
+      name: Flower17-Tulipa_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
-        width: 184
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 14
+        y: 12
+        width: 13
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-    outline:
-    - - {x: -94, y: 24}
-      - {x: -93, y: 21}
-      - {x: -91, y: -17}
-      - {x: -86, y: -22}
-      - {x: 96, y: -22}
-      - {x: 96, y: 24}
+    - serializedVersion: 2
+      name: Flower17-Tulipa_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 12
+        width: 14
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower17-Tulipa_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 12
+        width: 16
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flower17-Tulipa_3
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 11
+        width: 22
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
     physicsShape: []
   spritePackingTag: 
   userData: 
