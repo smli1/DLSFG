@@ -101,13 +101,19 @@ public class PlayerAction : MonoBehaviour {
                                     m_animator.SetBool("isPloughing", true);
                                     StartCoroutine(WaitForPloughingAnim(0.85f));
                                 } else {
+                                    StopCoroutine(TurnAlertOff());
+
                                     alert.gameObject.SetActive(true);
                                     alertText.text = "I should only dig in the field...";
+                                    
                                     StartCoroutine(TurnAlertOff());
                                 }
                             } else {
+                                StopCoroutine(TurnAlertOff());
+
                                 alert.gameObject.SetActive(true);
                                 alertText.text = "I have already dug here...";
+                                
                                 StartCoroutine(TurnAlertOff());
                             }
                         }
@@ -139,8 +145,11 @@ public class PlayerAction : MonoBehaviour {
 
                                 Debug.Log(newSeed.GetComponent<PlantBehaviour>().GetPlant().GetName());
                             } else {
+                                StopCoroutine(TurnAlertOff());
+
                                 alert.gameObject.SetActive(true);
                                 alertText.text = "There is no where to plant the seed...";
+                                
                                 StartCoroutine(TurnAlertOff());
                             }
                         }
@@ -167,8 +176,11 @@ public class PlayerAction : MonoBehaviour {
                                 StartCoroutine(WaitForWateringAnim(0.9f, nearbyGround));
                             }
                         } else {
+                            StopCoroutine(TurnAlertOff());
+
                             alert.gameObject.SetActive(true);
                             alertText.text = "There is nothing to water...";
+                            
                             StartCoroutine(TurnAlertOff());
                         }
                         break;
