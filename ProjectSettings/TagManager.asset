@@ -13,6 +13,7 @@ TagManager:
   - TheSun
   - Harvest
   - WateredGround
+  - Slots
   layers:
   - Default
   - TransparentFX
