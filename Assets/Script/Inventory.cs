@@ -23,12 +23,14 @@ public class Inventory : MonoBehaviour {
     [SerializeField]
     private GameObject inventoryUI;
 
-    Transform slots;
-
+    private Transform slots;
+    public AudioClip shortcutSound,bagSound;
+    AudioSource source;
     // Use this for initialization
     void Start() {
         shortcutUIAnimator = shortcutUI.GetComponent<Animator>();
         slots = inventoryUI.transform.GetChild(0).GetChild(0).GetChild(0);
+        source = GetComponent<AudioSource>();
         Debug.Log(slots);
         SetShortcutImages();
 
@@ -55,6 +57,7 @@ public class Inventory : MonoBehaviour {
     void Update () {
         if (!isChanging && (Input.GetKeyDown(KeyCode.Q) ||Input.GetKeyDown(KeyCode.E))) {
             isChanging = true;
+            source.PlayOneShot(shortcutSound,0.5f);
             if (Input.GetKeyDown(KeyCode.Q)) {
                 ChangeTool(true);
                 SetShortcutImages();
@@ -69,6 +72,7 @@ public class Inventory : MonoBehaviour {
             }
         }
         if (Input.GetKeyDown(KeyCode.B)) {
+            source.PlayOneShot(bagSound,1);
             if (inventoryUI.activeSelf)
             {
                 inventoryUI.SetActive(false);
@@ -90,8 +94,20 @@ public class Inventory : MonoBehaviour {
                 //Debug.Log("x:" + x + ",y:" + y);
                 if (playerBag[y, x].Length > 1)
                 {
-                    slot.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Images/" + playerBag[y, x].Split('/')[0])[1];
+                    string[] s = playerBag[y, x].Split('/');
+                    Debug.Log(playerBag[y,x]);
+                    if (s[s.Length - 1] == "flower") {
+                        slot.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Images/" + s[s.Length - 2])[2];
+                    }
+                    else if(s[s.Length - 1] == "seed")
+                    {
+                        slot.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Images/" + s[s.Length - 1])[0];
+                    }
                     //Debug.Log(slot.GetComponentInChildren<Image>().sprite);
+                }
+                else
+                {
+                    slot.GetChild(0).GetComponent<Image>().sprite = null;
                 }
 
             }

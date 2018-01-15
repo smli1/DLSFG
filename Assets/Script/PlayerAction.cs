@@ -27,12 +27,15 @@ public class PlayerAction : MonoBehaviour {
 
     public Image alert;
     public Text alertText;
+    public AudioClip diggingSound, wateringSound;
+    private AudioSource audioSource;
     #endregion
 
     #region Methods
 
     void Start() {
         m_animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         GetComponent<SpriteRenderer>().receiveShadows = true;
         GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
 
@@ -88,6 +91,7 @@ public class PlayerAction : MonoBehaviour {
                     case Tool.Shovel:
                         if (FindNearbyColliders("pickable", radiusOverlap).Length != 0)
                         {
+                            Alert("Something block me...");
                             break;
                         }
                         //Must in stay action before use Shovel and not Ploughing
@@ -100,21 +104,12 @@ public class PlayerAction : MonoBehaviour {
                                     movementEnable = false;
                                     m_animator.SetBool("isPloughing", true);
                                     StartCoroutine(WaitForPloughingAnim(0.85f));
+                                    audioSource.PlayOneShot(diggingSound,1f);
                                 } else {
-                                    StopCoroutine(TurnAlertOff());
-
-                                    alert.gameObject.SetActive(true);
-                                    alertText.text = "I should only dig in the field...";
-                                    
-                                    StartCoroutine(TurnAlertOff());
+                                    Alert("I should only dig in the field...");
                                 }
                             } else {
-                                StopCoroutine(TurnAlertOff());
-
-                                alert.gameObject.SetActive(true);
-                                alertText.text = "I have already dug here...";
-                                
-                                StartCoroutine(TurnAlertOff());
+                                Alert("I have already dug here...");
                             }
                         }
                         break;
@@ -145,12 +140,7 @@ public class PlayerAction : MonoBehaviour {
 
                                 Debug.Log(newSeed.GetComponent<PlantBehaviour>().GetPlant().GetName());
                             } else {
-                                StopCoroutine(TurnAlertOff());
-
-                                alert.gameObject.SetActive(true);
-                                alertText.text = "There is no where to plant the seed...";
-                                
-                                StartCoroutine(TurnAlertOff());
+                                Alert("There is no where to plant the seed...");
                             }
                         }
 
@@ -171,23 +161,19 @@ public class PlayerAction : MonoBehaviour {
                         if (collider3.Length != 0) {
                             GameObject nearbyGround = ClosestCollider(collider3).gameObject;
                             if (!nearbyGround.transform.GetChild(0).gameObject.activeSelf) {
+                                audioSource.PlayOneShot(wateringSound, 1f);
                                 movementEnable = false;
                                 m_animator.SetBool("isWatering", true);
                                 StartCoroutine(WaitForWateringAnim(0.9f, nearbyGround));
                             }
                         } else {
-                            StopCoroutine(TurnAlertOff());
-
-                            alert.gameObject.SetActive(true);
-                            alertText.text = "There is nothing to water...";
-                            
-                            StartCoroutine(TurnAlertOff());
+                            Alert("There is nothing to water...");
                         }
                         break;
                 }
             }
         }
-        else if (isPickedUp == true)
+        else if (isPickedUp)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -267,8 +253,21 @@ public class PlayerAction : MonoBehaviour {
         
     }
 
-    IEnumerator TurnAlertOff() {
-        yield return new WaitForSeconds(3f);
+    void Alert(string msg, float duration = 3)
+    {
+        StopCoroutine(TurnAlertOff(duration));
+        alert.CrossFadeAlpha(1, 0, true);
+        alertText.CrossFadeAlpha(1, 0, true);
+        alert.gameObject.SetActive(true);
+        alertText.text = msg;
+        StartCoroutine(TurnAlertOff(duration));
+    }
+
+    IEnumerator TurnAlertOff(float duration) {
+        yield return new WaitForSeconds(duration - 1);
+        alert.GetComponent<Image>().CrossFadeAlpha(0,1,false);
+        alertText.CrossFadeAlpha(0, 1, false);
+        yield return new WaitForSeconds(1f);
         alert.gameObject.SetActive(false);
     }
 
