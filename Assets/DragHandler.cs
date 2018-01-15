@@ -49,7 +49,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 int[] index = {y,x};
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().AddFunds(100);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().RemoveItem(index);
-                gameObject.tag = "";
 
             }
         }

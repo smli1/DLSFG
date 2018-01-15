@@ -15,6 +15,7 @@ TagManager:
   - WateredGround
   - Slots
   - flowerOwn
+  - seedOwn
   layers:
   - Default
   - TransparentFX

@@ -105,6 +105,7 @@ public class Inventory : MonoBehaviour {
                     {
                         slot.gameObject.SetActive(true);
                         slot.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Images/" + s[s.Length - 1])[0];
+                        slot.tag = "seedOwn";
                     }
                     //Debug.Log(slot.GetComponentInChildren<Image>().sprite);
                 }

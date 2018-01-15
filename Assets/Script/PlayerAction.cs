@@ -61,7 +61,7 @@ public class PlayerAction : MonoBehaviour {
                     nextFootstep = false;
                     if (footstepLR)
                     {
-                        audioSource.PlayOneShot(footstepLeft,0.3f);
+                        audioSource.PlayOneShot(footstepLeft,0.6f);
                         footstepLR = !footstepLR;
                     }
                     else
