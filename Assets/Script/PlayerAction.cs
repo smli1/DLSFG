@@ -27,8 +27,10 @@ public class PlayerAction : MonoBehaviour {
 
     public Image alert;
     public Text alertText;
-    public AudioClip diggingSound, wateringSound;
+    public AudioClip diggingSound, wateringSound, footstepLeft,footstepRight;
     private AudioSource audioSource;
+    bool nextFootstep = true;
+    bool footstepLR = true;
     #endregion
 
     #region Methods
@@ -38,7 +40,7 @@ public class PlayerAction : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         GetComponent<SpriteRenderer>().receiveShadows = true;
         GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
-
+        
         inventory = GetComponent<Inventory>();
     }
 
@@ -54,6 +56,21 @@ public class PlayerAction : MonoBehaviour {
             if (h != 0 || v != 0)
             {
                 m_animator.SetBool("isStay", false);
+                if (nextFootstep)
+                {
+                    nextFootstep = false;
+                    if (footstepLR)
+                    {
+                        audioSource.PlayOneShot(footstepLeft,0.3f);
+                        footstepLR = !footstepLR;
+                    }
+                    else
+                    {
+                        audioSource.PlayOneShot(footstepRight, 0.3f);
+                        footstepLR = !footstepLR;
+                    }
+                    StartCoroutine(WaitForFootstep(0.3f));
+                }
             }
             else if (h == 0 && v == 0 && IsAllInputKeyUp())
             {
@@ -61,7 +78,7 @@ public class PlayerAction : MonoBehaviour {
             }
 
             transform.position += transform.forward * Time.deltaTime * v * speed;
-            transform.position += transform.right * Time.deltaTime * h * speed;  
+            transform.position += transform.right * Time.deltaTime * h * speed;
             
         }
         SetDirection(m_animator.GetCurrentAnimatorStateInfo(0));
@@ -223,6 +240,12 @@ public class PlayerAction : MonoBehaviour {
         return true;
     }
 
+    IEnumerator WaitForFootstep(float time)
+    {
+        yield return new WaitForSeconds(time);
+        nextFootstep = true;
+    }
+
     IEnumerator WaitForPloughingAnim(float time)
     {
         yield return new WaitForSeconds(time);
@@ -375,7 +398,7 @@ public class PlayerAction : MonoBehaviour {
         foreach (Collider c in colliders) {
             if (c.gameObject.tag != tag) continue;
             filter.Push(c);
-            Debug.Log(c.name + " : " + Vector3.Distance(gameObject.transform.position, c.gameObject.transform.position));
+            //Debug.Log(c.name + " : " + Vector3.Distance(gameObject.transform.position, c.gameObject.transform.position));
         }
 
         colliders = filter.ToArray();

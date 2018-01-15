@@ -9,11 +9,14 @@ public class TransferScene : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (SceneManager.GetActiveScene().buildIndex == 0) {
-            SceneManager.LoadScene(1);
+            GameObject temp = GameObject.FindGameObjectWithTag("Player");
+            
+            SceneManager.MoveGameObjectToScene(temp, SceneManager.GetSceneAt(1));
+            SceneManager.LoadSceneAsync(1);
         }
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadSceneAsync(0);
         }
     }
 }

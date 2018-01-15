@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour {
         shortcutUIAnimator = shortcutUI.GetComponent<Animator>();
         slots = inventoryUI.transform.GetChild(0).GetChild(0).GetChild(0);
         source = GetComponent<AudioSource>();
-        Debug.Log(slots);
+        //Debug.Log(slots);
         SetShortcutImages();
 
         for(int i = 0; i < playerBag.GetLength(0); i++){
@@ -95,12 +95,15 @@ public class Inventory : MonoBehaviour {
                 if (playerBag[y, x].Length > 1)
                 {
                     string[] s = playerBag[y, x].Split('/');
-                    Debug.Log(playerBag[y,x]);
+                    //Debug.Log(playerBag[y,x]);
                     if (s[s.Length - 1] == "flower") {
+                        slot.gameObject.SetActive(true);
                         slot.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Images/" + s[s.Length - 2])[2];
+                        slot.tag = "flowerOwn";
                     }
                     else if(s[s.Length - 1] == "seed")
                     {
+                        slot.gameObject.SetActive(true);
                         slot.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Images/" + s[s.Length - 1])[0];
                     }
                     //Debug.Log(slot.GetComponentInChildren<Image>().sprite);
@@ -108,10 +111,12 @@ public class Inventory : MonoBehaviour {
                 else
                 {
                     slot.GetChild(0).GetComponent<Image>().sprite = null;
+                    slot.gameObject.SetActive(false);
                 }
 
             }
         }
+        inventoryUI.GetComponentInChildren<Text>().text = "$ " + moneyPouch;
 	}
 
     IEnumerator WaitForChangingToolAnim(float time)
